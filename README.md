@@ -14,6 +14,8 @@ The final 90-degree face-turn goal is **not yet complete**. The current bottlene
 
 ## Demonstrations
 
+[Open the browser-based video demo](https://sarahxugatech.github.io/leap-hand-cube-turn-mujoco/)
+
 ### Hand-controlled 2x2 face turn
 
 ![LEAP Hand turning a 2x2 cube](videos/leap_hand_2x2_turn_preview.gif)

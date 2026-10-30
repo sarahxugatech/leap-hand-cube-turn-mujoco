@@ -1,7 +1,7 @@
 {
   "test_only": true,
   "label": "articulated_face_reach_RF01",
-  "source_held_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/articulated_grasp_R01.json",
+  "source_held_pose": "poses/articulated_grasp_R01.json",
   "transition_steps": 300,
   "target_joints": {
     "if_mcp": 0.13853928873910504,

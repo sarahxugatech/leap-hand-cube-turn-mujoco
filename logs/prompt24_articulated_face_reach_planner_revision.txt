@@ -1,5 +1,5 @@
 test=Prompt 24 static ring-finger movable-face side reachability
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/articulated_grasp_R01.json
+source_pose=poses/articulated_grasp_R01.json
 seed=24001
 samples=20000
 target_contact_depth_m=-0.001000000
@@ -11,7 +11,7 @@ rejected_ring_core_jam=1
 best_joint_values=[1.5083667579162032, -0.9972734742368028, -0.06620488525631545, 1.2659751904980974]
 best_side_geoms=['rf_ds_collision_1']
 best_deepest_distance_m=-0.0010064924797847609
-output_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/articulated_face_reach_RF02.json
+output_pose=poses/articulated_face_reach_RF02.json
 dynamic_validation=NOT_RUN
 face_turn_attempted=NO
 main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1

@@ -1,5 +1,5 @@
 test=TEST-scene lift gate
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+pose=poses/grasp_hold_refined_R01.json
 ramp_steps=300
 hold_steps=500
 mount_yaw_degrees=0.000000000

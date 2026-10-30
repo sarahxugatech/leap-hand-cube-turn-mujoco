@@ -1,5 +1,5 @@
 test=TEST-scene lift gate
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/fixed_base_axis_Q01.json
+pose=poses/fixed_base_axis_Q01.json
 ramp_steps=300
 hold_steps=500
 mount_yaw_degrees=-14.316186748

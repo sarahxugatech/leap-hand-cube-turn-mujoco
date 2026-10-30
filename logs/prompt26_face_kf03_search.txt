@@ -26,7 +26,7 @@ top_10_by_final_angle:
 09 deltas={'rf_mcp': 0.1, 'rf_pip': -0.1, 'rf_dip': -0.05} final_deg=+15.651834 contact=1.000 force_n=0.054823 support=0.998 drift_mm=0.599211 min_dist_m=-0.000101684 pass=NO
 10 deltas={'rf_mcp': 0.02, 'rf_pip': -0.02, 'rf_dip': -0.1} final_deg=+15.644294 contact=1.000 force_n=0.080484 support=0.983 drift_mm=1.512088 min_dist_m=-0.000125488 pass=NO
 KF03_SEARCH=PASS
-output_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/articulated_face_followthrough_KF03.json
+output_pose=poses/articulated_face_followthrough_KF03.json
 main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 test_scene_sha256_before=baaf5fc65a93bc11ec12b9407e24c70568ed3d5f7bdb00916617b48f18fdacbb

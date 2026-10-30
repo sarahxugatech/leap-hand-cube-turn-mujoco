@@ -1,167 +1,172 @@
-# LEAP 手内转方块一面 — 新项目指导
+# LEAP In-Hand Single-Face Cube Turn — Project Guide
 
-**最终目标（冻住，不中途扩大）：**
-用一只 LEAP 灵巧手，在 MuJoCo 仿真里（桌面 Python，不上硬件），从一个稳稳握住的状态出发，把方块在手里转一面（绕一个轴转 90 度），转完还是稳稳握住，不掉、不卡进手掌和手指之间的缝里。
+**Frozen final goal:**
+Use one LEAP Hand in desktop Python MuJoCo simulation to start from a stable held grasp, rotate one cube face by 90 degrees about one axis, and finish in another stable held grasp without dropping the cube or trapping it between the palm and fingers.
 
-**不是这个目标的东西（明确排除）：**
-完整解魔方（多面、多步、颜色识别、解法规划）、双手魔方、转笔、锤子、硬件真机、声称训练过但实际上没训练的 PPO / VLA / MPC。
+**Explicitly out of scope:**
+A full Rubik's Cube solve, multi-face planning, color recognition, two-hand manipulation, pen spinning, hammer manipulation, physical hardware, or claims about PPO, VLA, or MPC that were not actually implemented and tested.
 
-**新文件夹原则：**
-旧文件夹 `dexterous-leap-project`（Mac `/Users/tianhui/Desktop/mujoco+lead/dexterous-leap-project`）**不要删、不要覆盖**，它只是参考。新项目用新文件夹，代码可以重新写，但经验和已测量的数字要带过来，成功标准要在新文件夹里重新测一遍，不能直接抄“旧项目过了”。
+**New-project rule:**
+The old `dexterous-leap-project` directory is reference-only. Do not delete, overwrite, or modify it. Reuse measured lessons, not old pass claims. Every success criterion must be measured again in this project.
 
-**配套 skill（已蒸馏好，直接给 Codex / Muse 用）：**
-`~/workspace/custom-skills/local_leap_inhand_cube_turn/SKILL.md`
-skill 名字：`local_leap_inhand_cube_turn`
-用的时候先读 skill，再写代码。skill 里有分阶段门控、接触序列定义、验证门槛、避坑清单。
+**Companion skill:**
+Read `SKILL.md` before changing the project. It defines staged gates, contact-sequence requirements, validation thresholds, and known failure modes.
 
 ---
 
-## 一、旧项目到现在为止的经验总结（2026-10-25 至 2026-10-29）
+## 1. Lessons from the previous project (2026-10-25 to 2026-10-29)
 
-### 通过的部分（PASS，可以复用思路，不能直接抄通过结论）
+### Validated components
 
-- **Phase 0 环境 + 模型加载 PASS：** Python 3.12.14、MuJoCo 3.17.0、NumPy 2.5.4、mink 1.3.0（后装）。Menagerie LEAP `right_hand.xml`，nq=16、nv=16、nu=16、nbody=18、ngeom=89。关节：if/mf/rf 的 mcp、rot、pip、dip；th 的 cmc、axl、mcp、ipl。执行器同名 + `_act`。位置执行器 kp=3.0、kv=0.01；默认摩擦 0.2、指尖摩擦 0.5、椭圆锥、impratio=100。
-- **Phase 1 桌子 + 方块场景 PASS：** `scenes/table_cube.xml`，方块半边 0.025 m、密度 1000 kg/m³、质量 0.125 kg、摩擦 0.2。桌面顶 0.05 m，方块静止中心 (0, 0, 0.075)，XY 漂移约 0、Z 变化 0.000108 m，<0.002 m 门槛。手底座用 3 个滑块 + pitch/roll 关节驱动（不是固定手掌，不是 mocap），当前场景计数 njnt 22、nu 21。
-- **验证器（Prompt 18–19）可用：** `scripts/validate_poses.py`，一次写好、多次复用、批量跑、只贴摘要表。关键修复：不能瞬移姿态，必须从张开姿态 600 步余弦插值到目标 + 500 步保持，否则会穿透 + 弹飞。
-- **可视化编辑器（Prompt 17）可用：** robot-keyframe-kit 0.3.5，`http://localhost:8081`，自动识别 21 关节 / 21 执行器。启动必须带 `--root-body mount`，否则默认会把带 freejoint 的方块当成根节点，拖动会动方块不是手。
+- **Phase 0 environment and model loading:** Python 3.12.14, MuJoCo 3.17.0, NumPy 2.5.4, and later mink 1.3.0. The Menagerie LEAP `right_hand.xml` model has `nq=16`, `nv=16`, `nu=16`, `nbody=18`, and `ngeom=89`. Index, middle, and ring joints are ordered `mcp`, `rot`, `pip`, `dip`; thumb joints are `cmc`, `axl`, `mcp`, `ipl`. Actuators use the joint name plus `_act`. Position actuators use `kp=3.0`, `kv=0.01`; default sliding friction is 0.2, fingertip friction is 0.5, the contact cone is elliptic, and `impratio=100`.
+- **Phase 1 table and cube scene:** `scenes/table_cube.xml` uses a 0.025 m cube half-size, density 1000 kg/m³, mass 0.125 kg, and friction 0.2. The table top is at 0.05 m and the cube starts at `(0, 0, 0.075)`. Measured XY drift was approximately zero and Z change was 0.000108 m, below the 0.002 m gate. The hand base is driven by three slide joints plus pitch and roll, not mocap or a fixed palm.
+- **Reusable validator:** `scripts/validate_poses.py` supports batch validation and summary tables. The essential fix was replacing instantaneous pose changes with a 600-step cosine interpolation from open pose followed by a 500-step hold.
+- **Keyframe editor:** robot-keyframe-kit 0.3.5 detected all 21 joints and actuators. It must be launched with `--root-body mount`; otherwise the cube free joint is treated as the root and editing moves the cube instead of the hand.
 
-### 解决的部分（SOLVED，值得带到新项目）
+### Solved issues
 
-- **位移问题解决了：** power_wrap_B 最大 2.101 mm、结束 1.999 mm；T3（B 的拇指变体，cmc/axl 0,0）最大 2.006 mm、结束 1.984 mm。最大 ≈ 结束，说明合拢后方块不再继续滑。对比：基线合拢 13.171 mm，Prompt 12 V0 合拢 5.118 mm、保持结束滑到 30.900 mm。
-- **交叉问题解决了：** rot 先分开（食指 +0.40、中指 0.00、无名指 -0.40）+ 中等弯曲（不全弯），三个 power_wrap 姿态防交叉全 PASS：无手指互穿、无手-方块穿透、无手-桌穿透。
-- **基线（以后都用这一组，不要用更早的 Prompt 03 / Prompt 08 那组）：**
-  - mount (-0.0425, -0.0070, -0.2190)，pitch/roll (+0.10, -0.10)，carry Z -0.10
-  - Index (-0.05, +0.50, -0.45, -0.36)，Middle (-0.06, -0.45, -0.50, -0.32)，Ring (-0.25, -0.60, -0.15, -0.30)，顺序 (mcp, rot, pip, dip)
-  - Thumb (-0.349, -0.349, +1.530, +0.110)，顺序 (th_cmc, th_axl, th_mcp, th_ipl)
+- **Cube displacement:** `power_wrap_B` reached 2.101 mm maximum and 1.999 mm final displacement. Thumb variant T3 reached 2.006 mm maximum and 1.984 mm final displacement. Similar maximum and final values showed that the cube stopped sliding after closure.
+- **Finger crossing:** Separating finger rotation first (index `+0.40`, middle `0.00`, ring `-0.40`) and then applying moderate curl prevented finger-finger, hand-cube, and hand-table penetration in all three power-wrap poses.
+- **Reference baseline:** mount `(-0.0425, -0.0070, -0.2190)`, pitch/roll `(+0.10, -0.10)`, carry Z `-0.10`. Joint order below is `(mcp, rot, pip, dip)`:
+  - Index `(-0.05, +0.50, -0.45, -0.36)`
+  - Middle `(-0.06, -0.45, -0.50, -0.32)`
+  - Ring `(-0.25, -0.60, -0.15, -0.30)`
+  - Thumb order `(cmc, axl, mcp, ipl)`: `(-0.349, -0.349, +1.530, +0.110)`
 
-### 没解决的部分（BLOCKED，新项目的第一关就是它）
+### Previously blocked issues
 
-- **拇指接触：全 NO。** Prompt 21 三个包握姿态拇指全 NO；Prompt 22 七个拇指变体（cmc/axl 从 -0.349/-0.349 到 0.600/0.000，T7 再把 mcp 加到 1.800、ipl 加到 0.400）拇指还是全 NO。
-- **指尖接触：全 0。** 所有 power_wrap 和拇指变体 tip_fingers 都是 0。
-- **第二根手指：没出现。** 所有这些姿态最终接触都只有 1 根非指尖手指（T6 甚至是 0 根）。
-- **提起 / 移动 / 放置：从未通过。** 因为没有姿态同时满足放宽条件（拇指持续 + 至少两指接触 + 位移 <15 mm + 无穿透），所以按门控从未跑过提起。Gate A（至少两指尖 + 拇指持续 + 位移 <5 mm）也从未通过。
-- **mink IK：两轮都 FAIL，结论是目标定义本身不匹配，不是求解器问题。**
-  - mount 冻住：拇指残差 0.044586 m、无名指 0.034594 m、食指 0.012877 m、中指 0.007484 m，门槛 0.005 m，全超。
-  - mount 放开（21 DOF）：拇指 62–64 mm、无名指 43–66 mm，两次求解都顶到 mount_z=-0.270 和 mount_roll=-0.350 下限，手穿进桌子。求解器想要的位置在限位之外、桌子里面，再放宽限位只会穿得更深。
-  - 结论：要求四个指尖同时在同一中间高度、对面两个面上，是这只手 / 这个安装方向做不到的目标。新项目不要再用这个目标，要用包握 + 指步态。
+- No tested power-wrap pose produced thumb contact.
+- No tested power-wrap pose produced fingertip contact.
+- Final contact involved at most one non-tip finger.
+- Lift, move, and place were not tested because no pose passed the relaxed entry gate: sustained thumb contact, at least two finger contacts, displacement below 15 mm, and no excessive penetration.
+- Two mink IK attempts failed because the target definition was incompatible with this hand and mounting direction, not because of solver tuning. With the mount fixed, all fingertip residuals exceeded the 0.005 m threshold. With all 21 DOFs released, the solution hit the lower mount-Z and roll limits and moved the hand through the table.
+- Requiring all four fingertips to meet opposite faces at the same middle height was therefore abandoned in favor of a power grasp plus finger gaiting.
 
-### 教训清单（新项目开工前先读一遍）
+### Engineering lessons
 
-1. **拇指问题是系统性的，不是调参问题。** Prompts 06–09 拇指距离卡在 0.029–0.039 m，pitch、roll、yaw、XY 平移每次只磨掉 0.002–0.009 m。不要再单变量磨拇指关节。
-2. **顺序错了就会交叉。** 先分开 rot，再分段弯 mcp→pip→dip，拇指最后对向再弯。一次弯到底 + rot 全是 0 = 手指叠在一起。
-3. **瞬移不是验证。** Prompt 18 旧版瞬移：第一次接触 step 0、手-方块穿透 -0.005246 m、方块弹飞 246 mm。插值版：第一次接触回到 step 19（和 Prompt 12 V0 同一步、同个几何体 `if_bs_collision_2`），位移 13.171 mm、无穿透。
-4. **位移小 ≠ 抓住了，无接触姿态永远不能叫“最好”。** 张开姿态位移 0 mm 是因为根本没碰方块。排序必须先看接触（拇指持续、指尖数、手指数），再看位移；没通过就写“NO PASSING POSE”。
-5. **最大位移和结束位移都要报。** 方块可能合拢时看着稳、保持时继续滑（Prompt 12 V0 就是例子）。
-6. **底座不是手腕。** 3 滑块 + pitch/roll 会把拇指和手指一起上下移动，解耦不了拇指高度和手指高度。手内转动要在手悬空握住之后做，不要在方块还放在桌子上时转（角会沉到桌面以下）。
-7. **LEAP 拇指碰不到任何一根手指是已知的。** 不要设计成拇指对单指的精细捏合，要设计成拇指垫 + 食指/中指/无名指垫 + 手掌一组的包握。
-8. **止损规则：** 结构性失败两次之后，不要再开网格搜索。换方法：可视化调姿态、换接触序列、换已验证的姿态来源（DexGraspNet / LEAP grasp cache 的思路，不是直接抄关节角）。
-
----
-
-## 二、网上资料蒸馏（只写能直接用的部分，数字先核对再引用）
-
-### 1. MuJoCo Playground — LeapCubeReorient / LeapCubeRotateZ（最接近新目标的公开基准）
-
-- 来源：arXiv:2502.08844，`mujoco_playground/_src/manipulation/leap_hand/reorient.py`，`LeapCubeReorient`、`LeapCubeRotateZ`。
-- 做法：MJX/JAX 并行仿真 + PPO，不对称 actor-critic（可部署的本体感觉观测 vs 特权仿真状态），朝向奖励按测地距离，成功门槛 <0.1 rad（旧 skill 里写的，引用前要在当前 Playground 代码里核对）。
-- 训练量级（不同表有出入，引用前必须查 `manipulation_params.py`）：一处写 LeapCubeReorient 100M 步、4096 环境、episode 500；另一处写 200M 步、网络 (512,256,128)、lr 3e-4、entropy 1e-2；论文里 1× RTX 4090 约 2,080 秒。**不要在 Mac CPU 上默认这个训练能免费跑。**
-- 最常见失败：方块卡进手指和手掌之间的缝里，策略卡住；较少见：食指和拇指互锁（低成本硬件的柔性导致）。新项目每一步都要查方块中心和手掌的几何关系，防止卡缝。
-- 能借的：已握住方块作为起点、失败模式清单、不对称观测思路。不能借的：PPO 检查点、MJX 批量设置、“Playground 在 Mac 上随便跑”的结论。
-- 链接：https://arxiv.org/html/2502.08844v1 ，https://deepwiki.com/google-deepmind/mujoco_playground/5.2-manipulation-examples
-
-### 2. dexterous-astra 魔方部分（结构能借，手不能抄）
-
-- 来源：https://github.com/jianglongye/dexterous-astra ，2026-10-29 直接打开验证：公开、main、115 stars、根目录只有 assets / cube / pen / README，没有 hammer 文件夹。
-- 魔方 = Wuji 手 + MuJoCo，zero-shot 双手脚本控制器（两步），训练版单手 learned turns / rolls 解 `U F L`。每个任务都有 `sim/`、`zero_shot/`、`policy/`、`checkpoints/`。
-- 能借的：文件夹结构（仿真 / 零样本脚本 / 策略分开）、“脚本控制器是合法的零样本基线”这个思路。不能借的：Wuji 关节角（20 DOF、5 指）到 LEAP（16 DOF、4 指），双手脚本到单手。
-
-### 3. 手内操作的通用分解：转一面 = 换接触，不是画一条关节轨迹
-
-- **Surprisingly Robust In-Hand Manipulation**（arXiv:2201.11503）：只用四个技能组合，就能循环所有方块面（24 = 6 面 × 4 朝向），技能包括滑动、推动、滚动、扭转、 pivot、指步态、可控下落，接触类型包括背面、腹面、侧面、指尖。启示：转一面可以拆成一小组可复用技能，不要写一条从头到尾的单调轨迹。LEAP 版要按 4 指重新推导，不能照抄 5 指的手。
-- **DROP**（arXiv:2409.14562）：采样式预测控制 + 视觉位姿估计，第一个手内重定向的在线规划硬件演示，效果和 RL 相当。关键机制：很多转动只有先用一套接触部分转，再换一套接触步态完成才可行，例如拇指支撑、食指和无名指往相反方向刷；或者拇指 + 无名指捏住并抬起整块方块，食指绕捏住的轴转，再放回手掌。启示：转一面的序列要写成两段式步态。
-- **HORA / Rapid Motor Adaptation**（arXiv:2210.04887）：只在仿真里用圆柱体训练，只用本体感觉历史在线适应，就能在真机上绕 Z 轴转多种物体，稳定的指步态是训练中自然出现的。启示：如果以后走学习路线，先只做 Z 轴转动、只用本体感觉，不要一开始就加视觉和全朝向。
-- **接触模式 / strata 规划（LEAP 手转 64 mm 方块 120 度的例子）：** 从固定抓握根本转不了方块，整个过程就是一段步态，接触不断建立和断开。启示：新项目的序列文档必须写清每一步“哪些接触保持、哪些断开、哪些建立”。
-
-### 4. 姿态来源（只用于“握住”这一关，不用于转动本身）
-
-- **DexGraspNet 2.0**（arXiv:2410.23004）：LEAP 专用的力闭合优化抓取数据集。用法：找一个方块类物体的手腕姿态 + 关节角，转成 Menagerie LEAP 关节顺序，再在 MuJoCo 里用第 5 节的门重新验证。不要直接粘贴关节角，它的验证是在 Isaac Gym，不是纯 MuJoCo。
-- **LEAP grasp cache（LEAP 论文思路）：** 先生成一批稳定抓取缓存，从缓存初始化，再惩罚偏离稳定抓取姿态、扭矩、做功、物体速度。用法：转动从一个稳定抓取缓存姿态出发，不要从张开姿态出发。
+1. The thumb issue was structural, not a one-parameter tuning problem. Pitch, roll, yaw, and XY scans only reduced a 29–39 mm gap by 2–9 mm per scan.
+2. Motion order matters: separate `rot` first, then curl `mcp`, `pip`, and `dip` in stages, and move the thumb last. Curling everything at once with zero rotation causes overlap.
+3. Instantaneous pose changes are not valid tests. The old teleporting validator produced contact at step 0, 5.246 mm penetration, and a 246 mm ejection. Interpolation restored contact at step 19 with no excessive penetration.
+4. Small displacement does not prove grasping. An open hand has zero cube displacement because it never touches the cube. Rank contact first, then displacement, and report `NO PASSING POSE` when no gate passes.
+5. Report both maximum and end-of-hold displacement because a cube can look stable during closure and continue sliding during the hold.
+6. The five mount joints are not a wrist. They move the thumb and fingers together and cannot independently correct thumb and fingertip height.
+7. Do not design a precision thumb-to-single-finger pinch. Use the thumb pad against a multi-finger and palm power grasp.
+8. Apply a stop-loss rule: after two structural failures, change the method rather than expanding the same grid.
 
 ---
 
-## 三、新项目分阶段计划（按顺序做，上一阶段门没过不进下一阶段）
+## 2. External references and transferable ideas
 
-### Phase 0 — 环境 + 模型（新文件夹里重跑一遍）
+### MuJoCo Playground — LeapCubeReorient / LeapCubeRotateZ
 
-- Python 3.12、MuJoCo 3.17.0（先核对，不要假设和旧项目一样）。
-- Menagerie `leap_hand` 整文件夹取回，不要手抄网格路径。
-- 只做加载检查：打印全部关节和执行器名，核对关节范围，再写任何目标角。
-- 产出：`logs/phase0_check_only.txt` + PROCESS_LOG 第一篇。
+- Source: arXiv:2502.08844 and `mujoco_playground/_src/manipulation/leap_hand/reorient.py`.
+- Method: parallel MJX/JAX simulation, PPO, asymmetric actor-critic observations, and a geodesic orientation reward.
+- Training-scale values differ across available tables and must be checked against the current `manipulation_params.py` before citation. Do not assume this training is practical on a Mac CPU.
+- Common failures include trapping the cube between the fingers and palm and finger-thumb interlocking.
+- Transferable ideas: start from a held cube, monitor known failure modes, and separate deployable proprioception from privileged simulator state.
+- Non-transferable items: PPO checkpoints, MJX batch settings, and claims that Playground training is inexpensive on this hardware.
 
-### Phase 1 — 握住关（必须先过，否则不要谈转动）
+### dexterous-astra cube project
 
-- 目标：从桌子上拿起方块 → 悬空握住 → 保持 500 步不掉。
-- 门（新文件夹里实测）：
-  - 拇指持续 + 至少两指接触，位移 <15 mm（放宽）/ <5 mm（严格），无穿透 >0.002 m，无弹飞。
-  - 提起：方块底部 ≥0.08 m / 中心 Z ≥0.105 m，保持结束时拇指 + 两指还在接触，无掉落。
-- 方法顺序（一次只动一个变量）：
-  1. 从旧项目的 power_wrap_B / T3 出发（位移约 2 mm、防交叉 PASS，但拇指 NO、只有 1 根非指尖手指）。
-  2. 先调 mount_Y（Prompt 24 的思路：±0.02 m、0.01 m 步长），再调 mount_X，仍然不行再看手掌高度 / pitch/roll，不要回到拇指关节网格。
-  3. 每批姿态都用批量验证器跑，摘要表只贴表，详细日志留在文件里。
-- 如果 Phase 1 过不了，Phase 2 不开工。这是硬门，不是建议。
+- Source: <https://github.com/jianglongye/dexterous-astra>.
+- It uses a five-finger Wuji hand in MuJoCo, including a two-hand zero-shot scripted controller and learned single-hand turns and rolls.
+- Transferable ideas: separate simulation, scripted zero-shot, policy, and checkpoint folders; treat a scripted controller as a legitimate zero-shot baseline.
+- Non-transferable items: Wuji 20-DOF joint values and two-hand trajectories cannot be copied to a 16-DOF, four-finger LEAP Hand.
 
-### Phase 2 — 脚本步态转一面（新项目的第一个真正 demo）
+### General in-hand manipulation decomposition
 
-- 先写接触序列，再写代码。90 度绕 Z 轴的例子（轴按实际转的面改）：
-  1. **握住起点：** 拇指 + 至少两指 +（如果用）手掌接触，保持 500 步不掉。
-  2. **护住：** 一根手指（例如无名指）在一侧当墙，拇指在对侧当墙，方块不能横向掉出去。
-  3. **推动：** 一根手指（例如食指或中指）推 / 滚方块绕 Z 转，护住的手指允许滑动但不能完全失去接触。
-  4. **步态：** 推动的手指抬起、换位、重新接触到新面，护住的手指 + 拇指在中间姿态握住方块。**这一步最容易掉或卡缝，如果这一步只有 1 根手指握住，必掉。**
-  5. **收尾：** 全部手指重新包握，保持 500 步，测最终朝向。
-  6. 任何一步掉落、卡缝、穿透 >0.002 m，立刻停，记下先失去的是哪个接触、哪一步、哪个几何体，不要继续跑“看能不能恢复”。
-- 门（全部要过，新文件夹里实测）：
-  - 起点握住 500 步不掉；转动量 90 度 ±10 度（这个容差要在第一次跑之前定死，失败后不许改）；终点握住 500 步不掉、无卡缝；全程无穿透 >0.002 m、无手指互穿 >0.002 m；**同一组数值连续通过两次**才算通过，一次幸运不算。
-  - 测量用方块四元数，不要用手指角度推断转了多少。
-- 产出：一段视频（合拢 + 提起 + 转动 + 收尾，真实结果，不剪掉掉落），+ 接触序列日志 + 摘要表。
+- **Surprisingly Robust In-Hand Manipulation** (arXiv:2201.11503) shows that reusable contact skills can cover cube orientations. A face turn should be decomposed into sliding, pushing, rolling, twisting, pivoting, finger gaiting, and controlled release rather than one monotonic joint trajectory.
+- **DROP** (arXiv:2409.14562) demonstrates that many rotations require one contact set for the first part of the turn and another contact gait for completion. This supports a two-stage face-turn sequence.
+- **HORA / Rapid Motor Adaptation** (arXiv:2210.04887) shows that stable finger gaiting can emerge from simulation training with proprioceptive history. If a learning route is attempted later, begin with Z-axis rotation and proprioception rather than vision and full-orientation targets.
+- Contact-mode planning examples with a LEAP Hand show that a fixed grasp cannot provide large rotation; the task is fundamentally a sequence of contacts being created and released.
 
-### Phase 3 — 学习路线（只有 Phase 2 脚本证明转得动，才开）
+### Grasp-pose sources
 
-- 选项 A（推荐先做）：Playground LeapCubeReorient 的思路，但只做 Z 轴、只用本体感觉，从 Phase 2 的脚本序列做演示 / 初始化，奖励 = 朝向测地距离 + 掉落惩罚 + 穿透惩罚 + 扭矩 / 动作率惩罚，终点握住才给成功奖励。
-- 选项 B（备选）：DROP 式采样规划，先部分转、再换接触完成。
-- 开工前必须先记下硬件：有没有 NVIDIA GPU、能不能跑 MJX/Playground、训练步数和时间预算。没有 GPU 就不要承诺 PPO 时间。
-- 产出：训练曲线 + 检查点 + 同样用 Phase 2 的门复测，不要只报训练奖励。
-
-### Phase 4 — 文档（和代码同等重要）
-
-- `PROCESS_LOG.md`：每次改动一篇，日期、改动、前后数值、观测结果、保留还是回退。
-- `FINAL_REPORT.md`：只写项目本身，不写任务分配方、不写 RA 头衔、不写没跑过的 VLA / MPC / 学习策略。结果字段在实测前保持 TBD。
-- 诚实红线：脚本步态就是脚本步态，不要写成学习策略；仿真结果就是仿真结果，不要写成真机结果；转一面就是转一面，不要写成解魔方。
+- **DexGraspNet 2.0** (arXiv:2410.23004) provides force-closure LEAP grasps. Any imported wrist and joint pose must be converted to Menagerie joint order and revalidated in MuJoCo.
+- A **LEAP grasp cache** can provide stable initialization poses. Face turning should start from a validated cached grasp rather than from an open hand.
 
 ---
 
-## 四、新文件夹建议结构（照着建，不要在旧文件夹里改）
+## 3. Staged project plan
 
-```
-<new-folder>/
-  scenes/                 # 桌子 + 方块 + 手底座，主场景 SHA256 每次提示前后都要记
-  poses/                  # 每个候选姿态一个 JSON，mount + 16 个关节全写清
+### Phase 0 — Environment and model
+
+- Verify Python and MuJoCo versions instead of assuming they match the old project.
+- Fetch the complete Menagerie `leap_hand` folder with its assets.
+- Load the model, print every joint and actuator, and verify joint ranges before writing target angles.
+- Deliverables: `logs/phase0_check_only.txt` and the first `PROCESS_LOG.md` entry.
+
+### Phase 1 — Stable held grasp
+
+- Goal: pick the cube up from the table, hold it in free space, and maintain the grasp for 500 steps.
+- Relaxed gate: sustained thumb plus at least two finger contacts, displacement below 15 mm, no penetration above 0.002 m, and no ejection.
+- Strict gate: sustained thumb plus at least two fingertip contacts and displacement below 5 mm.
+- Lift gate: cube bottom at least 0.08 m or center Z at least 0.105 m, with thumb and two-finger contact retained through the final hold.
+- Change one variable at a time: begin with `power_wrap_B` / T3, scan mount Y, then mount X, and only then consider palm height, pitch, and roll.
+- Phase 2 must not begin until Phase 1 passes.
+
+### Phase 2 — Scripted single-face gait
+
+Define the contact sequence before writing control code. A 90-degree Z-axis example is:
+
+1. **Initial hold:** thumb, at least two fingers, and optionally the palm maintain a 500-step grasp.
+2. **Guard:** one finger forms a lateral wall while the thumb supports the opposite side.
+3. **Push:** another finger pushes or rolls the face around Z while guarding contacts may slide but do not disappear.
+4. **Gait:** the pushing finger lifts, repositions, and establishes a new contact while the thumb and guarding fingers support the cube. This is the highest-risk stage.
+5. **Finish:** all fingers return to a power grasp and hold for 500 steps.
+6. Stop immediately on a drop, trap, or penetration above 0.002 m. Record which contact failed first, the step, and the geometry name.
+
+The complete gate requires:
+
+- A stable 500-step starting grasp.
+- A 90-degree turn within a tolerance frozen before the first test.
+- A stable 500-step ending grasp with no trapping.
+- No hand-object or finger-finger penetration above 0.002 m.
+- Two consecutive passes with the same values.
+- Rotation measured from the cube or face joint state, never inferred from finger angles.
+
+Deliverables: one uncut video covering closure, lift, turn, and final hold; a contact-sequence log; and a summary table.
+
+### Phase 3 — Optional learning route
+
+Only begin after the scripted Phase 2 trajectory proves that the task is mechanically feasible.
+
+- Option A: adapt the Playground LeapCubeReorient approach to Z-axis-only proprioceptive control, initializing from the scripted sequence. Rewards should cover orientation error, drop and penetration penalties, torque/action-rate costs, and a stable final grasp.
+- Option B: use DROP-style sampled planning with a partial turn followed by a contact change.
+- Record available GPU hardware, simulator support, training steps, and time budget before making any training commitment.
+- Deliverables: training curves, checkpoints, and validation against the same Phase 2 gates.
+
+### Phase 4 — Documentation
+
+- `PROCESS_LOG.md`: date, change, before/after measurements, observation, and keep/revert decision for every iteration.
+- `FINAL_REPORT.md`: project facts only. Do not include task-assignment content, unearned titles, or untested VLA/MPC/learning claims.
+- Scripted control must be described as scripted control, simulation as simulation, and a single-face turn as a single-face turn rather than a full cube solve.
+
+---
+
+## 4. Recommended project structure
+
+```text
+<project-root>/
+  scenes/                 # Table, cube, and hand-base MuJoCo scenes
+  poses/                  # One JSON per candidate, with mount and all 16 joints
   scripts/
-    validate_poses.py     # 复用旧验证器思路，扩展转角测量，不要每个尝试写一个新脚本
-    render_video.py       # 合拢 + 提起 + 转动 + 收尾，一段视频，真实结果
-  logs/                   # 摘要表只贴表，详细日志留在文件里
-  videos/                 # 真实结果视频，不剪掉掉落
+    validate_poses.py     # Shared batch validator with angle measurement
+    render_video.py       # Closure, lift, turn, and final hold
+  logs/                   # Detailed evidence; only summary tables in reports
+  videos/                 # Complete, truthful result videos
   PROCESS_LOG.md
   FINAL_REPORT.md
 ```
 
-## 五、给 Codex 的第一批提示顺序（不要跳）
+## 5. Required execution order
 
-1. Phase 0：环境 + 模型加载检查。
-2. Phase 1：从 power_wrap_B / T3 出发，用批量验证器过握住关（先 mount_Y，再 mount_X，一次一个变量）。
-3. Phase 2：写接触序列文档，再写脚本步态转一面，门按上面 Phase 2 的清单判。
-4. 只有 Phase 2 通过两次之后，才谈 Phase 3 学习路线。
+1. Phase 0: environment and model load check.
+2. Phase 1: start from `power_wrap_B` / T3 and pass the grasp gate with the shared batch validator.
+3. Phase 2: document the contact sequence, then implement and validate a scripted face-turn gait.
+4. Discuss Phase 3 learning methods only after Phase 2 passes twice.
 
 ---
 
-**旧项目一句话结论：**
-位移和防交叉已经解决了，拇指和第二根手指还没解决，所以新项目不是“重新做一遍旧项目”，而是“先把旧项目没过的握住关过了，再在握住的基础上加一段指步态，转一面”。
+**One-sentence conclusion from the old project:**
+Cube displacement and finger crossing had been solved, but thumb contact and a second supporting finger had not; the new project therefore had to pass the held-grasp gate first and then add a finger gait for a single-face turn.

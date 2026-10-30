@@ -25,7 +25,7 @@ def main() -> None:
     passed = repeatable and all(bool(result["pass"]) for result in results)
     lines = [
         "test=LEAP hand trajectory on visual 2x2 control-compatible TEST scene",
-        f"scene={SCENE}",
+        f"scene={SCENE.relative_to(ROOT)}",
         f"scene_sha256={hashlib.sha256(SCENE.read_bytes()).hexdigest()}",
         "face_qpos_written_during_run=NO",
         "attachment_or_equality=NO",

@@ -1,5 +1,5 @@
 test=Prompt 16 TEST-only small-joint torque probe
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/oriented_grasp_O01.json
+source_pose=poses/oriented_grasp_O01.json
 probe_delta_rad=0.1
 ramp_steps=150
 hold_steps=100

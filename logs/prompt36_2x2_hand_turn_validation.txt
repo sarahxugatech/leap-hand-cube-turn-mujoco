@@ -1,5 +1,5 @@
 test=LEAP hand trajectory on visual 2x2 control-compatible TEST scene
-scene=/Users/tianhui/Desktop/New Folder With Items/灵巧手/scenes/table_2x2_cube_control_test.xml
+scene=scenes/table_2x2_cube_control_test.xml
 scene_sha256=f0306a5dd5514030bc93d8e221374838033041cdfb577fe21a4b6ae066ffbe30
 face_qpos_written_during_run=NO
 attachment_or_equality=NO

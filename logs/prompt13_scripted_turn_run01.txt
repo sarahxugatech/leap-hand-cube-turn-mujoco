@@ -1,5 +1,5 @@
 test=Prompt 13 scripted / zero-shot turn diagnostic run 01
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+pose=poses/grasp_hold_refined_R01.json
 target_deg=90.0
 tolerance_deg=10.0
 controller=deterministic fixed keyframes

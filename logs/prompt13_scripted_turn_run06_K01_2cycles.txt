@@ -1,6 +1,6 @@
 test=Prompt 13 sampled-keyframe actor two-cycle boundary run 06 K01
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
-keyframes=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_keyframes_K01.json
+pose=poses/grasp_hold_refined_R01.json
+keyframes=poses/turn_keyframes_K01.json
 gait_cycles=2
 target_deg=90.0
 tolerance_deg=10.0
@@ -31,7 +31,7 @@ ROTATION_GATE=FAIL
 END_HOLD_GATE=PASS
 SCRIPTED_TURN=FAIL
 repeatability_passes=0
-video=/Users/tianhui/Desktop/New Folder With Items/灵巧手/videos/prompt13_K01_two_cycle_failure.mp4
+video=videos/prompt13_K01_two_cycle_failure.mp4
 video_sha256=a9fe9b2be1fc50d1ecac6ac3ff894d6fb13e3b866b6f7cae0b66ca116ced6c8e
 main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1

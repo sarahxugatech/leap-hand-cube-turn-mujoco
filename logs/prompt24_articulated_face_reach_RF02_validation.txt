@@ -1,5 +1,5 @@
 test=Prompt 24 dynamic articulated-face reach validation
-candidate=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/articulated_face_reach_RF02.json
+candidate=poses/articulated_face_reach_RF02.json
 transition_steps=300
 hold_steps=500
 support_sustained_last_100=YES

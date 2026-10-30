@@ -1,7 +1,7 @@
 {
   "test_only": true,
   "label": "articulated_face_followthrough_KF02_R2",
-  "source_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/articulated_face_reach_RF02.json",
+  "source_pose": "poses/articulated_face_reach_RF02.json",
   "search_steps": 150,
   "baseline_face_angle_rad": 0.05907167356839888,
   "deltas": {

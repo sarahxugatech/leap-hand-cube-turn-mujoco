@@ -1,6 +1,6 @@
 test=Prompt 15 deterministic two-stage scripted / zero-shot turn run 01
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
-turn_ready_candidate=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T01.json
+source_pose=poses/grasp_hold_refined_R01.json
+turn_ready_candidate=poses/turn_ready_T01.json
 target_deg=90.0
 tolerance_deg=10.0
 ring_sweep_mcp=1.650000

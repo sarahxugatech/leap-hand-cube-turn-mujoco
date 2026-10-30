@@ -1,7 +1,7 @@
 {
   "test_only": true,
   "label": "articulated_face_four_finger_reverse_R01",
-  "source_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/articulated_face_followthrough_KF03.json",
+  "source_pose": "poses/articulated_face_followthrough_KF03.json",
   "transition_steps": 300,
   "hold_steps": 500,
   "deltas": {

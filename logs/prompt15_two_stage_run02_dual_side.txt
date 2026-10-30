@@ -1,6 +1,6 @@
 test=Prompt 15 deterministic two-stage scripted / zero-shot turn run 02 dual-side
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
-turn_ready_candidate=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/dual_side_D01.json
+source_pose=poses/grasp_hold_refined_R01.json
+turn_ready_candidate=poses/dual_side_D01.json
 target_deg=90.0
 tolerance_deg=10.0
 ring_sweep_mcp=1.900000
@@ -31,7 +31,7 @@ ROTATION_GATE=FAIL
 END_HOLD_GATE=PASS
 SCRIPTED_TURN=FAIL
 repeatability_passes=0
-video=/Users/tianhui/Desktop/New Folder With Items/灵巧手/videos/prompt15_two_stage_run02_dual_side.mp4
+video=videos/prompt15_two_stage_run02_dual_side.mp4
 video_sha256=bc672ec67bb4ba1eb93f5998432d9768a4a333d21c684baf2b29ebbddc938785
 main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1

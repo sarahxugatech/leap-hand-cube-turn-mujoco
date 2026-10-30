@@ -7,7 +7,7 @@ variables=16 LEAP joints + mount pitch/roll/yaw + initial cube XYZ
 dynamic_steps_run=0
 rotation_run=NO
 static_candidates=1
-pose_files=['/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/oriented_grasp_O01.json']
+pose_files=['poses/oriented_grasp_O01.json']
 main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 

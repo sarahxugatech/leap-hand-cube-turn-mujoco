@@ -1,5 +1,5 @@
 test=TEST-scene lift gate
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/oriented_grasp_O01.json
+pose=poses/oriented_grasp_O01.json
 ramp_steps=300
 hold_steps=500
 mount_yaw_degrees=-14.316186748

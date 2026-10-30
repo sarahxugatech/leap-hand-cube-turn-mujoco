@@ -1,5 +1,5 @@
 test=Prompt 22 TEST-only articulated face scene check
-test_scene=/Users/tianhui/Desktop/New Folder With Items/灵巧手/scenes/table_articulated_face_test.xml
+test_scene=scenes/table_articulated_face_test.xml
 test_scene_sha256=baaf5fc65a93bc11ec12b9407e24c70568ed3d5f7bdb00916617b48f18fdacbb
 nq=29 nv=28 nu=21 nbody=21 ngeom=91
 cube_freejoint=YES

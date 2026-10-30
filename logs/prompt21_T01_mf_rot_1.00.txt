@@ -1,7 +1,7 @@
 test=Prompt 21 T01 middle-pusher TEST-only small-joint torque probe
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+source_pose=poses/grasp_hold_refined_R01.json
 probe_delta_rad=1.0
-transition=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T01.json
+transition=poses/turn_ready_T01.json
 ramp_steps=150
 hold_steps=100
 cube_hand_attachment=NO

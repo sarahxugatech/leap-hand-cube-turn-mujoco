@@ -10,7 +10,7 @@ gates=cube rise >=20 mm; abs(world-Z yaw)>=1 deg; abs(yaw)>tilt; drift<15 mm; sa
 full_90_degree_turn=NO
 candidates=0
 pose_files=none
-near_miss_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/axis_support_near_N01.json
+near_miss_pose=poses/axis_support_near_N01.json
 near_miss_screen_rise_mm=18.572608561729208
 near_miss_screen_yaw_deg=-4.424291483596159
 near_miss_screen_tilt_deg=3.72473042108692

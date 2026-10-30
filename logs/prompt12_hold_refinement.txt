@@ -1,5 +1,5 @@
 test=Prompt 12 local dynamic hold refinement
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_optimizer_C02.json
+source_pose=poses/grasp_optimizer_C02.json
 method=CEM-style local sampling; not MPC; not learned
 seed=12031
 population=256
@@ -8,7 +8,7 @@ elite_fraction=0.1
 screen_steps=100
 elapsed_s=29.202
 screen_pass_candidates=5
-pose_files=['/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R02.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R03.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R04.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R05.json']
+pose_files=['poses/grasp_hold_refined_R01.json', 'poses/grasp_hold_refined_R02.json', 'poses/grasp_hold_refined_R03.json', 'poses/grasp_hold_refined_R04.json', 'poses/grasp_hold_refined_R05.json']
 cube_hand_attachment=NO
 cube_qpos_updates_during_run=0
 lift_run=NO

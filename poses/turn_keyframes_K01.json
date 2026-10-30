@@ -1,6 +1,6 @@
 {
   "test_only": true,
-  "source_held_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/grasp_hold_refined_R01.json",
+  "source_held_pose": "poses/grasp_hold_refined_R01.json",
   "target_rotation_deg": 90.0,
   "tolerance_deg": 10.0,
   "keyframes": {

@@ -1,6 +1,6 @@
 test=Prompt 14 independent turn-ready transition validation
-candidate=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T01.json
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+candidate=poses/turn_ready_T01.json
+source_pose=poses/grasp_hold_refined_R01.json
 transition_steps=300
 hold_steps=500
 side_margin_m=0.005
@@ -27,7 +27,7 @@ penetration_over_0.002_m=NO
 warnings=none
 TURN_READY_GATE=PASS
 rotation_run=NO
-video=/Users/tianhui/Desktop/New Folder With Items/灵巧手/videos/prompt14_turn_ready_T01_transition.mp4
+video=videos/prompt14_turn_ready_T01_transition.mp4
 video_sha256=f0d7d6f5bbf5d11f4f2c1054a15ab98467d1aa235c85167061b71e2fdfa5a53d
 main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1

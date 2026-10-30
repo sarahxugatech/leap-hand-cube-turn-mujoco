@@ -1,5 +1,5 @@
 test=TEST-scene initialized held pose passive hold
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/axis_support_near_N01.json
+pose=poses/axis_support_near_N01.json
 steps=500
 mount_yaw_degrees=-14.316186748
 cube_hand_attachment=NO

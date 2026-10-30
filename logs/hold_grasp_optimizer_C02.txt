@@ -1,5 +1,5 @@
 test=TEST-scene initialized held pose passive hold
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_optimizer_C02.json
+pose=poses/grasp_optimizer_C02.json
 steps=500
 cube_hand_attachment=NO
 cube_freejoint=YES

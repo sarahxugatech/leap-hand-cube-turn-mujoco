@@ -1,7 +1,7 @@
 {
   "test_only": true,
   "label": "turn_ready_T04_index_tip",
-  "source_held_pose": "/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json",
+  "source_held_pose": "poses/grasp_hold_refined_R01.json",
   "transition_steps": 500,
   "mount_lift_m": 0.03,
   "target_joints": {

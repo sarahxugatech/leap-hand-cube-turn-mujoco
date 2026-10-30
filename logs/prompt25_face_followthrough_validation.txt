@@ -1,5 +1,5 @@
 test=Prompt 25 clean-state articulated-face follow-through validation
-candidate=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/articulated_face_followthrough_KF02.json
+candidate=poses/articulated_face_followthrough_KF02.json
 angle_gate_deg=[5.0, 10.0]
 last_100_stability_range_limit_deg=0.250
 run_1={'final_angle_deg': 10.419309230081241, 'maximum_angle_deg': 10.419309230081241, 'last_100_range_deg': 0.031077359965239037, 'transition_contact_rate': 0.9866666666666667, 'transition_average_force_n': 0.3247810626317772, 'last_100_contact_rate': 1.0, 'last_100_average_force_n': 0.0032628181730934413, 'support_all_steps': True, 'ring_core_any': False, 'maximum_relative_drift_mm': 0.11449537130505898, 'minimum_distance_m': -9.041391107581127e-05, 'penetration_over_0.002_m': False, 'warnings': [], 'pass': False}

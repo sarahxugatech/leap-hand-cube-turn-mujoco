@@ -1,5 +1,5 @@
 test=Prompt 21 R01 mf_rot amplitude TEST-only small-joint torque probe
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+source_pose=poses/grasp_hold_refined_R01.json
 probe_delta_rad=0.8
 ramp_steps=150
 hold_steps=100

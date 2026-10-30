@@ -1,5 +1,5 @@
 test=Prompt 14 turn-ready grasp planner
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+source_pose=poses/grasp_hold_refined_R01.json
 seed=14001
 population=64
 generations_requested=8
@@ -11,7 +11,7 @@ transition_steps=300
 screen_hold_steps=100
 side_margin_m=0.005
 screen_pass_candidates=3
-pose_files=['/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T01.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T02.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T03.json']
+pose_files=['poses/turn_ready_T01.json', 'poses/turn_ready_T02.json', 'poses/turn_ready_T03.json']
 MPC=NO
 learned_policy=NO
 cube_hand_attachment=NO

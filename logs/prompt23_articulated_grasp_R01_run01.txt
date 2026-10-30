@@ -1,5 +1,5 @@
 test=Prompt 23 articulated object hold then lift gate
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/articulated_grasp_R01.json
+pose=poses/articulated_grasp_R01.json
 hold_steps=500
 lift_ramp_steps=300
 lift_hold_steps=500

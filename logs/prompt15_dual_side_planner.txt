@@ -1,5 +1,5 @@
 test=Prompt 15 dual-side turn-ready planner
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+source_pose=poses/grasp_hold_refined_R01.json
 seed=15003
 population=64
 generations_requested=8
@@ -12,7 +12,7 @@ screen_hold_steps=100
 side_margin_m=0.005
 required_distal_side_fingers=2
 screen_pass_candidates=3
-pose_files=['/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/dual_side_D01.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/dual_side_D02.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/dual_side_D03.json']
+pose_files=['poses/dual_side_D01.json', 'poses/dual_side_D02.json', 'poses/dual_side_D03.json']
 MPC=NO
 learned_policy=NO
 cube_hand_attachment=NO

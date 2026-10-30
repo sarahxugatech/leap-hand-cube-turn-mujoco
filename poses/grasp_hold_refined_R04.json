@@ -1,7 +1,7 @@
 {
   "test_only": true,
   "label": "grasp_hold_refined_R04",
-  "source_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/grasp_optimizer_C02.json",
+  "source_pose": "poses/grasp_optimizer_C02.json",
   "cube_start_xyz": [
     -0.026900454180864574,
     0.003850421905990872,

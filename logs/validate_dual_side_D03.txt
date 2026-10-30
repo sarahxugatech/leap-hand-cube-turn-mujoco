@@ -1,6 +1,6 @@
 test=Prompt 14 independent turn-ready transition validation
-candidate=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/dual_side_D03.json
-source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+candidate=poses/dual_side_D03.json
+source_pose=poses/grasp_hold_refined_R01.json
 transition_steps=300
 hold_steps=500
 side_margin_m=0.005

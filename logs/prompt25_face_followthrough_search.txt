@@ -22,7 +22,7 @@ top_10_by_final_angle:
 09 deltas={'rf_mcp': 0.0, 'rf_pip': -0.1, 'rf_dip': -0.1} final_deg=+7.290210 gain_deg=+3.905652 force_n=0.521134 contact_rate=0.966667 support_rate=0.886667 ring_core_rate=0.000000 drift_mm=2.388525 min_dist_m=-0.000149637 admissible=NO
 10 deltas={'rf_mcp': 0.1, 'rf_pip': -0.05, 'rf_dip': -0.05} final_deg=+7.259860 gain_deg=+3.875302 force_n=0.179101 contact_rate=0.993333 support_rate=1.000000 ring_core_rate=0.000000 drift_mm=0.050671 min_dist_m=-0.000052919 admissible=YES
 FOLLOWTHROUGH_SEARCH=PASS
-output_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/articulated_face_followthrough_KF02.json
+output_pose=poses/articulated_face_followthrough_KF02.json
 main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
 test_scene_sha256_before=baaf5fc65a93bc11ec12b9407e24c70568ed3d5f7bdb00916617b48f18fdacbb

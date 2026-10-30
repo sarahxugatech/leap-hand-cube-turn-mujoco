@@ -1,5 +1,5 @@
 test=Prompt 08 TEST-scene initialized held pose passive hold
-pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/mjlab_left5_held_test.json
+pose=poses/mjlab_left5_held_test.json
 steps=500
 cube_hand_attachment=NO
 cube_freejoint=YES

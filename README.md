@@ -16,6 +16,8 @@ The final 90-degree face-turn goal is **not yet complete**. The current bottlene
 
 ### Hand-controlled 2x2 face turn
 
+![LEAP Hand turning a 2x2 cube](videos/leap_hand_2x2_turn_preview.gif)
+
 [Watch/download the hand-controlled result](videos/prompt36_leap_hand_2x2_turn.mp4)
 
 ### Four-finger unloaded motion

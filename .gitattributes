@@ -1,0 +1,6 @@
+*.mp4 binary
+*.gif binary
+*.png binary
+*.csv linguist-generated=true
+logs/*.txt linguist-generated=true
+

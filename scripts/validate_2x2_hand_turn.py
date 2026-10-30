@@ -12,7 +12,7 @@ from validate_four_finger_reverse import run_once
 
 ROOT = Path(__file__).resolve().parents[1]
 SCENE = ROOT / "scenes" / "table_2x2_cube_control_test.xml"
-LOG = ROOT / "logs" / "prompt36_2x2_hand_turn_validation.txt"
+LOG = ROOT / "logs" / "validated_2x2_trajectory.txt"
 
 
 def main() -> None:

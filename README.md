@@ -1,84 +1,122 @@
-# LEAP Hand 2x2 Cube Face Turn in MuJoCo
+<div align="center">
 
-Work-in-progress reproduction of a dexterous in-hand manipulation task using one LEAP Hand in MuJoCo. The controller is deterministic and scripted; it does not use reinforcement learning, MPC, VLA, an attachment constraint, or direct face-joint position updates during a run.
+# Contact-Driven Cube Face Turning with a LEAP Hand
 
-## Current result
+Deterministic in-hand manipulation in MuJoCo using a 16-DoF LEAP Hand and a passive articulated 2×2 cube.
 
-- Stable grasp and approximately 30 mm lift
-- Contact-driven face turn to **15.766 degrees**
-- Reverse travel of **15.811 degrees**, ending at approximately **-0.045 degrees**
-- Two identical independent validation runs
-- No penetration over 2 mm and no MuJoCo solver warning
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![MuJoCo 3.17](https://img.shields.io/badge/MuJoCo-3.17-0C7BDC)](https://mujoco.org/)
+[![Validation](https://github.com/sarahxugatech/leap-hand-cube-turn-mujoco/actions/workflows/validate.yml/badge.svg)](https://github.com/sarahxugatech/leap-hand-cube-turn-mujoco/actions/workflows/validate.yml)
+[![Live demo](https://img.shields.io/badge/Live_demo-GitHub_Pages-2ea44f)](https://sarahxugatech.github.io/leap-hand-cube-turn-mujoco/)
 
-The final 90-degree face-turn goal is **not yet complete**. The current bottleneck is transferring the pushing role to another finger without destabilizing the core grasp.
+[Live video demo](https://sarahxugatech.github.io/leap-hand-cube-turn-mujoco/) · [Technical report](docs/technical-report.md) · [Implementation log](docs/engineering/implementation-log.md)
 
-## Demonstrations
+</div>
 
-[Open the browser-based video demo](https://sarahxugatech.github.io/leap-hand-cube-turn-mujoco/)
+![Validated LEAP Hand cube-face trajectory](docs/assets/turn-preview.gif)
 
-### Hand-controlled 2x2 face turn
+## Overview
 
-![LEAP Hand turning a 2x2 cube](videos/leap_hand_2x2_turn_preview.gif)
+This project reproduces a dexterous manipulation task from scratch in desktop MuJoCo. A scripted controller establishes a stable grasp, lifts the cube, reaches the passive face layer, turns it through physical contact, and reverses it toward the starting angle.
 
-[Watch/download the hand-controlled result](videos/prompt36_leap_hand_2x2_turn.mp4)
+The experiment deliberately excludes reinforcement learning, MPC, VLA, attachment constraints, and direct face-joint updates during execution. Every reported result comes from deterministic replay in this repository.
 
-### Four-finger unloaded motion
+## Measured result
 
-[Watch/download the unloaded finger demo](videos/leap_four_finger_motion_no_cube.mp4)
+| Metric | Result |
+|---|---:|
+| Stable lift | 30 mm |
+| Forward face turn | 15.766° |
+| Reverse travel | 15.811° |
+| Final face angle | −0.045° |
+| Core-support rate | 98.75% |
+| Independent replays | 2 identical passes |
+| Penetration over 2 mm | None |
+| Solver warnings | None |
 
-## Implementation
+The 90° objective is not yet complete. The present limit is a grasp-topology problem: near 15°, the pushing finger approaches its usable workspace, while transferring the load to another finger destabilizes the cube core.
 
-1. Load and verify the 16-joint LEAP Hand model from MuJoCo Menagerie.
-2. Build table, free-cube, articulated-face, and visual 2x2 test scenes.
-3. Search for and independently validate a stable grasp and lift.
-4. Use cosine-interpolated keyframes and deterministic joint grids to reach and push the passive face layer.
-5. Measure contact continuity, object drift, penetration, warnings, and repeatability.
+## Controller and simulation modifications
 
-The main controller changes are smooth cosine joint interpolation, staged grasp/lift/turn/reverse control, and automatic joint-angle search. The main simulation change is replacing a rigid cube with a simplified 2x2 model containing a passive rotating layer that can only be moved through contact.
+- Replaced abrupt position commands with cosine-interpolated joint trajectories.
+- Structured the controller into grasp, lift, reach, face-turn, hold, and reverse phases.
+- Added deterministic joint-grid searches for contact-rich keyframes.
+- Replaced a rigid cube with a simplified 2×2 model containing a passive rotating layer.
+- Added repeatability, contact, object-drift, penetration, and solver-warning checks.
 
-## Setup
+The rotating layer has no actuator. Its motion is generated only by simulated finger contact.
+
+## Reproduce the result
+
+### 1. Install
 
 ```bash
-git clone --recurse-submodules <repository-url>
-cd <repository-folder>
+git clone --recurse-submodules https://github.com/sarahxugatech/leap-hand-cube-turn-mujoco.git
+cd leap-hand-cube-turn-mujoco
 python3.12 -m venv .venv
 .venv/bin/python -m pip install --only-binary=:all: -r requirements.txt
 ```
 
-## Reproduce the measured result
+### 2. Validate
 
 ```bash
 .venv/bin/python scripts/validate_2x2_hand_turn.py
 ```
 
-Expected final line:
+Expected terminal result:
 
 ```text
+repeatable=YES
 HAND_CONTROLLED_2X2_TRAJECTORY=PASS
 ```
 
-Render the validated trajectory:
+### 3. Render
 
 ```bash
 .venv/bin/python scripts/render_2x2_hand_turn.py
 ```
 
-Render the unloaded four-finger demonstration:
+The rendered MP4 is written to `videos/leap_hand_2x2_turn.mp4`.
 
-```bash
-.venv/bin/python scripts/render_four_finger_motion_no_cube.py
+## System design
+
+```text
+LEAP Hand model (MuJoCo Menagerie)
+              |
+              v
+  grasp -> lift -> reach -> turn -> hold -> reverse
+              |                  |
+              v                  v
+      cosine interpolation   passive face joint
+              \                  /
+               v                v
+             deterministic validator
+       contact | drift | penetration | warnings
 ```
 
-## Project layout
+## Repository guide
 
-- `scenes/`: MuJoCo XML scenes
-- `poses/`: measured controller targets and keyframes
-- `scripts/`: search, validation, diagnostic, and rendering tools
-- `logs/`: experiment evidence, including unsuccessful searches
-- `videos/`: demonstrations and selected failure cases
-- `PROCESS_LOG.md`: chronological implementation record
+| Path | Purpose |
+|---|---|
+| `scenes/` | MuJoCo model and test scenes |
+| `poses/` | Controller targets and validated keyframes |
+| `scripts/` | Validation, rendering, search, and diagnostic tools |
+| `logs/` | Machine-readable experiment evidence |
+| `docs/` | Technical report, engineering history, and demo site |
+| `docs/assets/` | Browser-ready demonstration media |
+| `menagerie/` | Pinned MuJoCo Menagerie submodule |
 
-## Model attribution
+Start with `scripts/validate_2x2_hand_turn.py`. The other search and diagnostic files document the experimental path to the current result; directory-level README files explain their organization.
 
-The LEAP Hand model is provided through the [MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie) submodule. Refer to the Menagerie repository and its LEAP Hand directory for the applicable model license and attribution.
+## Scope and limitations
+
+- Simulation only; no hardware transfer has been tested.
+- One LEAP Hand and one cube face only.
+- Scripted deterministic control; no learned policy.
+- Current validated rotation is 15.766°, not the final 90° target.
+- The full pre-cleanup development snapshot is preserved on the `research-archive-2026-10-30` branch.
+
+## Attribution
+
+The LEAP Hand model is provided through the [MuJoCo Menagerie](https://github.com/google-deepmind/mujoco_menagerie) submodule. Model licensing and attribution remain governed by the files in that upstream repository.
 

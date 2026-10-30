@@ -1,9 +1,0 @@
-{
-  "mount": {"mount_x": -0.0325, "mount_y": -0.0070, "mount_z": -0.2190, "mount_pitch": 0.10, "mount_roll": -0.10},
-  "joints": {
-    "if_mcp": -0.30, "if_rot": 0.40, "if_pip": -0.50, "if_dip": -0.35,
-    "mf_mcp": -0.30, "mf_rot": 0.00, "mf_pip": -0.50, "mf_dip": -0.35,
-    "rf_mcp": -0.30, "rf_rot": -0.40, "rf_pip": -0.50, "rf_dip": -0.35,
-    "th_cmc": 0.000, "th_axl": 0.000, "th_mcp": 1.530, "th_ipl": 0.110
-  }
-}

@@ -31,7 +31,7 @@ from validate_poses import (
 
 KF03_POSE = ROOT / "poses" / "articulated_face_followthrough_KF03.json"
 OUTPUT_POSE = ROOT / "poses" / "articulated_face_four_finger_reverse_R01.json"
-OUTPUT_LOG = ROOT / "logs" / "prompt28_four_finger_reverse_validation.txt"
+OUTPUT_LOG = ROOT / "logs" / "reverse_trajectory_validation.txt"
 REVERSE_DELTAS = {
     "if_pip": 0.20,
     "mf_pip": 0.20,
@@ -175,7 +175,7 @@ def main() -> None:
     if main_after != main_before or scene_after != scene_before:
         raise RuntimeError("scene changed during four-finger reverse validation")
     lines = [
-        "test=Prompt 28 four-finger articulated-face reverse",
+        "test=four-finger articulated-face reverse",
         f"deltas={REVERSE_DELTAS}",
         f"run_1={run_1}",
         f"run_2={run_2}",

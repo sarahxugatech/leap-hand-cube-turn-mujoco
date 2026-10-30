@@ -1,0 +1,28 @@
+test=Prompt 12 local dynamic hold refinement
+source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_optimizer_C02.json
+method=CEM-style local sampling; not MPC; not learned
+seed=12031
+population=256
+generations=10
+elite_fraction=0.1
+screen_steps=100
+elapsed_s=29.202
+screen_pass_candidates=5
+pose_files=['/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R02.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R03.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R04.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R05.json']
+cube_hand_attachment=NO
+cube_qpos_updates_during_run=0
+lift_run=NO
+rotation_run=NO
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+
+generation=1 score=26.512244 thumb_last20=0.00 fingers=['if', 'mf'] max_disp_mm=1.860 deepest_m=-0.001185779 pass=False
+generation=2 score=46.235302 thumb_last20=0.80 fingers=['mf'] max_disp_mm=2.206 deepest_m=-0.000990071 pass=False
+generation=3 score=65.963532 thumb_last20=1.00 fingers=['if', 'mf'] max_disp_mm=2.546 deepest_m=-0.001974055 pass=True
+generation=4 score=68.320562 thumb_last20=1.00 fingers=['if', 'mf'] max_disp_mm=2.099 deepest_m=-0.001849580 pass=True
+generation=5 score=71.012408 thumb_last20=1.00 fingers=['if', 'mf'] max_disp_mm=1.234 deepest_m=-0.001289363 pass=True
+generation=6 score=71.207129 thumb_last20=1.00 fingers=['if', 'mf'] max_disp_mm=0.991 deepest_m=-0.001301548 pass=True
+generation=7 score=71.197704 thumb_last20=1.00 fingers=['if', 'mf'] max_disp_mm=1.003 deepest_m=-0.001567937 pass=True
+generation=8 score=71.471653 thumb_last20=1.00 fingers=['if', 'mf'] max_disp_mm=0.660 deepest_m=-0.001795502 pass=True
+generation=9 score=71.608627 thumb_last20=1.00 fingers=['if', 'mf'] max_disp_mm=0.489 deepest_m=-0.001709310 pass=True
+generation=10 score=71.651743 thumb_last20=1.00 fingers=['if', 'mf'] max_disp_mm=0.435 deepest_m=-0.001605751 pass=True

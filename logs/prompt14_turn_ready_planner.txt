@@ -1,0 +1,29 @@
+test=Prompt 14 turn-ready grasp planner
+source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+seed=14001
+population=64
+generations_requested=8
+generations_completed=8
+elite_count=8
+time_budget_s=45.0
+elapsed_s=22.970
+transition_steps=300
+screen_hold_steps=100
+side_margin_m=0.005
+screen_pass_candidates=3
+pose_files=['/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T01.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T02.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T03.json']
+MPC=NO
+learned_policy=NO
+cube_hand_attachment=NO
+cube_qpos_updates_during_run=0
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+
+generation=1 score=150.617582 thumb=1.00 supports=1.00 side=1.00 fingers=['if', 'mf', 'rf'] side_contacts=['rf_ds_collision_1'] drift_mm=1.975 self_m=+inf pass=True
+generation=2 score=151.588595 thumb=1.00 supports=1.00 side=1.00 fingers=['if', 'mf', 'rf'] side_contacts=['rf_md_collision_5'] drift_mm=0.588 self_m=-0.000076 pass=True
+generation=3 score=151.807843 thumb=1.00 supports=1.00 side=1.00 fingers=['if', 'mf', 'rf'] side_contacts=['rf_ds_collision_1'] drift_mm=0.275 self_m=-0.000115 pass=True
+generation=4 score=151.840096 thumb=1.00 supports=1.00 side=1.00 fingers=['if', 'mf', 'rf'] side_contacts=['rf_ds_collision_3'] drift_mm=0.228 self_m=-0.000146 pass=True
+generation=5 score=151.792636 thumb=1.00 supports=1.00 side=1.00 fingers=['if', 'mf', 'rf'] side_contacts=['rf_ds_collision_3'] drift_mm=0.296 self_m=-0.000146 pass=True
+generation=6 score=151.847216 thumb=1.00 supports=1.00 side=1.00 fingers=['if', 'mf', 'rf'] side_contacts=['rf_ds_collision_3'] drift_mm=0.218 self_m=-0.000132 pass=True
+generation=7 score=151.921587 thumb=1.00 supports=1.00 side=1.00 fingers=['if', 'mf', 'rf'] side_contacts=['rf_ds_collision_3'] drift_mm=0.112 self_m=+inf pass=True
+generation=8 score=151.844584 thumb=1.00 supports=1.00 side=1.00 fingers=['if', 'mf', 'rf'] side_contacts=['rf_ds_collision_3'] drift_mm=0.222 self_m=+inf pass=True

@@ -1,0 +1,25 @@
+test=Prompt 18 TEST-only target-axis dynamic planner
+seed=18001
+population=64
+generations_completed=8
+elapsed_s=24.499
+variables=mount pitch/roll/yaw + 4 ring joints + palm-relative cube XYZ offset + rf_rot amplitude
+fixed=thumb/index/middle joints and cube physics
+full_90_degree_turn=NO
+axis_gate=abs(world-Z yaw)>=1 deg and abs(yaw)>tilt
+candidates=0
+pose_files=none
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+
+generation_summary:
+baseline score=-266.487648 gate=False yaw=+2.566683 tilt=5.104837 failure=none step=None deepest_cube=-0.001064202
+orientation_grid samples=50 score=-237.867678 gate=False yaw=-3.274819 tilt=3.765448 pitch=-0.233333 roll=-0.116667 failure=none
+generation=1 score=-237.867678 gate=False yaw=-3.274819 tilt=3.765448 drift_mm=13.575 amplitude=0.100000 failure=none step=None deepest_cube=-0.001299537 deepest_self=+inf deepest_table=+inf
+generation=2 score=-241.518352 gate=False yaw=-2.856994 tilt=3.437614 drift_mm=14.107 amplitude=0.093802 failure=none step=None deepest_cube=-0.001735578 deepest_self=+inf deepest_table=+inf
+generation=3 score=-244.300516 gate=False yaw=+2.176949 tilt=2.687045 drift_mm=10.342 amplitude=0.082282 failure=none step=None deepest_cube=-0.001990741 deepest_self=+inf deepest_table=+inf
+generation=4 score=-240.215734 gate=False yaw=-3.179206 tilt=3.826738 drift_mm=12.672 amplitude=0.105313 failure=none step=None deepest_cube=-0.001682667 deepest_self=+inf deepest_table=+inf
+generation=5 score=-245.429080 gate=False yaw=-1.136161 tilt=1.190214 drift_mm=13.312 amplitude=0.092051 failure=none step=None deepest_cube=-0.001297653 deepest_self=+inf deepest_table=+inf
+generation=6 score=-239.074971 gate=False yaw=-3.222287 tilt=3.826889 drift_mm=9.612 amplitude=0.093878 failure=none step=None deepest_cube=-0.001936594 deepest_self=+inf deepest_table=+inf
+generation=7 score=-240.651931 gate=False yaw=+2.776049 tilt=3.297171 drift_mm=8.790 amplitude=0.089250 failure=none step=None deepest_cube=-0.001969077 deepest_self=+inf deepest_table=+inf
+generation=8 score=-235.789559 gate=False yaw=-3.474735 tilt=3.902605 drift_mm=12.529 amplitude=0.102227 failure=none step=None deepest_cube=-0.001717448 deepest_self=+inf deepest_table=+inf

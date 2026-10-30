@@ -1,0 +1,52 @@
+{
+  "test_only": true,
+  "label": "grasp_hold_refined_R03",
+  "source_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/grasp_optimizer_C02.json",
+  "cube_start_xyz": [
+    -0.02751170476123376,
+    0.0043874908998132395,
+    0.18596088757604554
+  ],
+  "cube_start_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "mount": {
+    "mount_x": -0.0425,
+    "mount_y": -0.007,
+    "mount_z": -0.219,
+    "mount_pitch": 0.1,
+    "mount_roll": -0.1
+  },
+  "joints": {
+    "if_mcp": 0.13318759531411184,
+    "if_rot": -0.023185315782167246,
+    "if_pip": -0.326095203018852,
+    "if_dip": 0.20493724018813192,
+    "mf_mcp": 0.36942162253000543,
+    "mf_rot": 0.0036640173573590142,
+    "mf_pip": -0.3839344991118011,
+    "mf_dip": -0.3264280108061107,
+    "rf_mcp": -0.12006595815857395,
+    "rf_rot": 0.3680832300383419,
+    "rf_pip": -0.11057776901735468,
+    "rf_dip": -0.11690641629328048,
+    "th_cmc": 0.19454059894728012,
+    "th_axl": 0.21682888162586791,
+    "th_mcp": 1.2886784972868606,
+    "th_ipl": 0.21421957115656629
+  },
+  "screen": {
+    "steps": 100,
+    "thumb_last20_fraction": 1.0,
+    "final_fingers": [
+      "if",
+      "mf"
+    ],
+    "max_displacement_m": 0.0004893085782326449,
+    "deepest_distance_m": -0.0014130162119230937,
+    "pass": true
+  }
+}

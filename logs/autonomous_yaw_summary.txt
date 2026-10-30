@@ -1,0 +1,13 @@
+AUTONOMOUS VARIABLE 3 — TEST-SCENE WORLD-Z YAW
+pose_file                 | thumb_sustained | tip_fingers | any_fingers | final_contact | max_disp_mm | end_disp_mm | ejected | penetration | GATE_A | RELAXED
+power_wrap_T3_yaw_W1.json | NO              | 0           | 2           | YES           | 29.693      | 29.693      | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_yaw_W2.json | NO              | 0           | 1           | YES           | 57.792      | 55.425      | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_yaw_W3.json | NO              | 0           | 1           | YES           | 1.941       | 1.887       | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_yaw_W4.json | NO              | 0           | 1           | YES           | 0.295       | 0.126       | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_yaw_W5.json | NO              | 0           | 0           | NO            | 36.505      | 36.494      | YES     | NO          | FAIL   | FAIL
+thumb_ever: W1=NO W2=NO W3=NO W4=NO W5=NO
+anti_crossing: W1=PASS W2=PASS W3=PASS W4=PASS W5=PASS
+refinement_run=NO (thumb ever NO in all initial variants)
+variable_result=yaw: thumb ever NO in all variants
+stop_condition=three variables tried and no variable produced thumb ever YES
+

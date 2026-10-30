@@ -1,0 +1,41 @@
+{
+  "test_only": true,
+  "label": "articulated_face_followthrough_KF02",
+  "source_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/articulated_face_reach_RF02.json",
+  "search_steps": 150,
+  "baseline_face_angle_rad": 0.05907167356839888,
+  "deltas": {
+    "rf_mcp": 0.1,
+    "rf_pip": -0.05,
+    "rf_dip": -0.1
+  },
+  "target_joints": {
+    "rf_mcp": 1.6020807751021582,
+    "rf_rot": -1.0043117956430747,
+    "rf_pip": -0.11697898372192157,
+    "rf_dip": 1.166716808581484
+  },
+  "search_result": {
+    "deltas": {
+      "rf_mcp": 0.1,
+      "rf_pip": -0.05,
+      "rf_dip": -0.1
+    },
+    "targets": {
+      "rf_mcp": 1.6020807751021582,
+      "rf_rot": -1.0043117956430747,
+      "rf_pip": -0.11697898372192157,
+      "rf_dip": 1.166716808581484
+    },
+    "final_angle_rad": 0.1526079691665841,
+    "angle_gain_rad": 0.09353629559818522,
+    "average_force_n": 0.3247810626317772,
+    "contact_rate": 0.9866666666666667,
+    "support_rate": 1.0,
+    "ring_core_rate": 0.0,
+    "max_relative_drift_m": 0.00011449537130505897,
+    "minimum_distance_m": -9.041391107581127e-05,
+    "warnings": [],
+    "admissible": true
+  }
+}

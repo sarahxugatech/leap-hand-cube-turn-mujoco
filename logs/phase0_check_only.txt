@@ -1,0 +1,48 @@
+model_path: menagerie/leap_hand/scene_right.xml
+load_status: PASS
+nq=16 nv=16 nu=16 nbody=18 ngeom=89
+joints:
+  00 if_mcp: range=[-0.314000, 2.230000]
+  01 if_rot: range=[-1.047000, 1.047000]
+  02 if_pip: range=[-0.506000, 1.885000]
+  03 if_dip: range=[-0.366000, 2.042000]
+  04 mf_mcp: range=[-0.314000, 2.230000]
+  05 mf_rot: range=[-1.047000, 1.047000]
+  06 mf_pip: range=[-0.506000, 1.885000]
+  07 mf_dip: range=[-0.366000, 2.042000]
+  08 rf_mcp: range=[-0.314000, 2.230000]
+  09 rf_rot: range=[-1.047000, 1.047000]
+  10 rf_pip: range=[-0.506000, 1.885000]
+  11 rf_dip: range=[-0.366000, 2.042000]
+  12 th_cmc: range=[-0.349000, 2.094000]
+  13 th_axl: range=[-0.349000, 2.094000]
+  14 th_mcp: range=[-0.470000, 2.443000]
+  15 th_ipl: range=[-1.340000, 1.880000]
+actuators:
+  00 if_mcp_act: kp=3.000000 kv=0.010000
+  01 if_rot_act: kp=3.000000 kv=0.010000
+  02 if_pip_act: kp=3.000000 kv=0.010000
+  03 if_dip_act: kp=3.000000 kv=0.010000
+  04 mf_mcp_act: kp=3.000000 kv=0.010000
+  05 mf_rot_act: kp=3.000000 kv=0.010000
+  06 mf_pip_act: kp=3.000000 kv=0.010000
+  07 mf_dip_act: kp=3.000000 kv=0.010000
+  08 rf_mcp_act: kp=3.000000 kv=0.010000
+  09 rf_rot_act: kp=3.000000 kv=0.010000
+  10 rf_pip_act: kp=3.000000 kv=0.010000
+  11 rf_dip_act: kp=3.000000 kv=0.010000
+  12 th_cmc_act: kp=3.000000 kv=0.010000
+  13 th_axl_act: kp=3.000000 kv=0.010000
+  14 th_mcp_act: kp=3.000000 kv=0.010000
+  15 th_ipl_act: kp=3.000000 kv=0.010000
+cone=elliptic impratio=100.000000
+geom_friction palm_collision_1: sliding=0.200000
+geom_friction if_tip: sliding=0.500000
+geom_friction mf_tip: sliding=0.500000
+geom_friction rf_tip: sliding=0.500000
+geom_friction th_tip: sliding=0.500000
+Python 3.12.14
+pip 26.2.1
+MuJoCo 3.17.0
+NumPy 2.5.4
+pip check: No broken requirements found.

@@ -1,0 +1,43 @@
+{
+  "test_only": true,
+  "label": "articulated_grasp_R01",
+  "source_pose": "/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json",
+  "scene": "/Users/tianhui/Desktop/New Folder With Items/灵巧手/scenes/table_articulated_face_test.xml",
+  "cube_start_xyz": [
+    -0.025277667200994555,
+    0.004489626624719289,
+    0.18589126781208926
+  ],
+  "cube_start_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "face_turn_rad": 0.0,
+  "mount": {
+    "mount_x": -0.0425,
+    "mount_y": -0.007,
+    "mount_z": -0.219,
+    "mount_pitch": 0.1,
+    "mount_roll": -0.1
+  },
+  "joints": {
+    "if_mcp": 0.13853928873910504,
+    "if_rot": -0.08040263274334342,
+    "if_pip": -0.3085295048771625,
+    "if_dip": 0.20167269360138299,
+    "mf_mcp": 0.3683704704919363,
+    "mf_rot": 0.0037933649281407084,
+    "mf_pip": -0.3657432876951409,
+    "mf_dip": -0.25452645472633906,
+    "rf_mcp": -0.14060616101590065,
+    "rf_rot": 0.3677964635124774,
+    "rf_pip": -0.2041214110239357,
+    "rf_dip": -0.2141652619949265,
+    "th_cmc": 0.2895525011952669,
+    "th_axl": 0.20788480291387904,
+    "th_mcp": 1.2029693402223016,
+    "th_ipl": 0.304903327604935
+  }
+}

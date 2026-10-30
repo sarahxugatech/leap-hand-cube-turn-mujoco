@@ -1,0 +1,31 @@
+test=Prompt 20 TEST-only joint support/axis refinement
+seed=20001
+population=48
+generations_requested=10
+generations_completed=10
+elapsed_s=26.722
+variables=16 LEAP joints + palm-relative cube XYZ offset
+objective_revision=lift margin prioritized after first run peaked at 19.163 mm rise
+gates=cube rise >=20 mm; abs(world-Z yaw)>=1 deg; abs(yaw)>tilt; drift<15 mm; safe contacts
+full_90_degree_turn=NO
+candidates=0
+pose_files=none
+near_miss_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/axis_support_near_N01.json
+near_miss_screen_rise_mm=18.572608561729208
+near_miss_screen_yaw_deg=-4.424291483596159
+near_miss_screen_tilt_deg=3.72473042108692
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+
+generation_summary:
+baseline score=86.634516 gate=False rise_mm=15.990 yaw=-0.910 tilt=0.676 drift_mm=14.743 failure=none
+generation=1 score=86.634516 gate=False rise_mm=15.990 yaw=-0.910 tilt=0.676 drift_mm=14.743 failure=none
+generation=2 score=246.035877 gate=False rise_mm=16.462 yaw=-1.297 tilt=0.975 drift_mm=13.422 failure=none
+generation=3 score=261.565298 gate=False rise_mm=17.526 yaw=-1.140 tilt=0.875 drift_mm=12.512 failure=none
+generation=4 score=106.581015 gate=False rise_mm=17.747 yaw=+0.178 tilt=0.574 drift_mm=12.018 failure=none
+generation=5 score=276.824786 gate=False rise_mm=18.086 yaw=-3.413 tilt=2.949 drift_mm=11.852 failure=none
+generation=6 score=288.721025 gate=False rise_mm=18.573 yaw=-4.424 tilt=3.725 drift_mm=11.425 failure=none
+generation=7 score=277.502588 gate=False rise_mm=18.153 yaw=-3.119 tilt=2.607 drift_mm=12.290 failure=none
+generation=8 score=269.585028 gate=False rise_mm=17.918 yaw=-1.859 tilt=1.534 drift_mm=12.309 failure=none
+generation=9 score=284.388341 gate=False rise_mm=18.235 yaw=-4.280 tilt=3.467 drift_mm=11.640 failure=none
+generation=10 score=281.771907 gate=False rise_mm=18.200 yaw=-3.634 tilt=2.892 drift_mm=11.832 failure=none

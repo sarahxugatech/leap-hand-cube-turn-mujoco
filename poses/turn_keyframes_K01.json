@@ -1,0 +1,47 @@
+{
+  "test_only": true,
+  "source_held_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/grasp_hold_refined_R01.json",
+  "target_rotation_deg": 90.0,
+  "tolerance_deg": 10.0,
+  "keyframes": {
+    "ring_guard": {
+      "rf_mcp": 1.39500824761245,
+      "rf_rot": -1.047,
+      "rf_pip": 0.3258833447636723,
+      "rf_dip": 0.49595263493934194
+    },
+    "differential_push": {
+      "if_rot": 0.5546565344184126,
+      "mf_rot": -0.4689911203638317
+    },
+    "release": {
+      "if_mcp": -0.018552083840521136,
+      "mf_mcp": 0.018127079410766394
+    }
+  },
+  "screen": {
+    "score": 55.134619505401176,
+    "yaw_deg": 1.60954933844612,
+    "tilt_deg": 0.06385377803512593,
+    "geodesic_deg": 1.6108016657736282,
+    "thumb_sustained": true,
+    "fingers": [
+      "if",
+      "mf",
+      "rf"
+    ],
+    "maximum_drift_m": 0.004165831614948849,
+    "deepest_cube_m": -0.0005728971596788529,
+    "deepest_self_m": -0.001996034174245481,
+    "deepest_table_m": Infinity,
+    "safe": true
+  },
+  "planner": {
+    "kind": "sampled keyframe planner (not MPC, not learned)",
+    "seed": 13001,
+    "population": 24,
+    "generations": 6,
+    "elite_count": 5,
+    "time_budget_s": 45.0
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "test_only": true,
+  "label": "grasp_optimizer_C05",
+  "cube_start_xyz": [
+    -0.015103862948932185,
+    0.0038967966282244027,
+    0.18416686241476724
+  ],
+  "cube_start_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "mount": {
+    "mount_x": -0.0425,
+    "mount_y": -0.007,
+    "mount_z": -0.219,
+    "mount_pitch": 0.1,
+    "mount_roll": -0.1
+  },
+  "joints": {
+    "if_mcp": -0.02663758079537716,
+    "if_rot": 0.08380339071823846,
+    "if_pip": -0.4754846447085432,
+    "if_dip": -0.1214765037057951,
+    "mf_mcp": 0.19486554717051766,
+    "mf_rot": -0.08764058907448681,
+    "mf_pip": -0.31375451610025906,
+    "mf_dip": -0.2774738684742685,
+    "rf_mcp": -0.0745891266038219,
+    "rf_rot": -0.050962804328736976,
+    "rf_pip": -0.1684267204913485,
+    "rf_dip": -0.1678771521862913,
+    "th_cmc": 0.6042405983497353,
+    "th_axl": 0.6378198368196178,
+    "th_mcp": 1.240887440884019,
+    "th_ipl": -0.12531439879288828
+  },
+  "static_gate": {
+    "thumb": true,
+    "non_thumb_fingers": [
+      "if",
+      "mf"
+    ],
+    "contacts": [
+      "if_bs_collision_1",
+      "mf_md_collision_4",
+      "palm_collision_1",
+      "th_ds_collision_2"
+    ],
+    "minimum_hand_cube_m": -0.0016912584032995111,
+    "minimum_hand_table_m": 0.03715582910868195,
+    "minimum_finger_finger_m": 0.00593591242993971,
+    "pass": true
+  },
+  "optimizer": {
+    "kind": "static grasp CEM-style sampling (not MPC, not learned)",
+    "seed": 12030,
+    "population": 768,
+    "generations": 12,
+    "elite_fraction": 0.1,
+    "time_budget_s": 45.0
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "test_only": true,
+  "label": "oriented_grasp_O01",
+  "cube_start_xyz": [
+    -0.0322754337159918,
+    0.01101934588857187,
+    0.19931260389968833
+  ],
+  "cube_start_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "mount": {
+    "mount_x": -0.0425,
+    "mount_y": -0.007,
+    "mount_z": -0.219,
+    "mount_pitch": 0.08828173310712831,
+    "mount_roll": -0.07278340754009206
+  },
+  "mount_yaw_degrees": -14.316186748442632,
+  "joints": {
+    "if_mcp": -0.1669950787002497,
+    "if_rot": -0.3333197644146199,
+    "if_pip": 0.8559567097433625,
+    "if_dip": 1.2982049299779426,
+    "mf_mcp": 0.6197639198805263,
+    "mf_rot": -0.050513257666011065,
+    "mf_pip": -0.02579217936745027,
+    "mf_dip": -0.006446213402389673,
+    "rf_mcp": 1.6953978260973857,
+    "rf_rot": -0.9042900313218334,
+    "rf_pip": 0.6942892050070812,
+    "rf_dip": 0.8126464799754454,
+    "th_cmc": 0.4521582828097178,
+    "th_axl": 0.10827652820299326,
+    "th_mcp": 1.194630473877885,
+    "th_ipl": 0.46582267947353806
+  },
+  "static_gate": {
+    "thumb": true,
+    "non_thumb_fingers": [
+      "mf",
+      "rf"
+    ],
+    "contacts": [
+      "mf_px_collision",
+      "rf_md_collision_5",
+      "th_ds_collision_1",
+      "th_ds_collision_2"
+    ],
+    "distal_side_contacts": [
+      "rf_md_collision_5"
+    ],
+    "orientation_delta_degrees": 14.416508114163701,
+    "minimum_hand_cube_m": -0.0010642018190053862,
+    "minimum_hand_table_m": Infinity,
+    "minimum_finger_finger_m": Infinity,
+    "pass": true
+  },
+  "optimizer": {
+    "kind": "static orientation/grasp CEM (not MPC, not learned)",
+    "seed": 16001,
+    "population": 1024,
+    "generations": 14,
+    "elite_fraction": 0.08,
+    "time_budget_s": 45.0
+  }
+}

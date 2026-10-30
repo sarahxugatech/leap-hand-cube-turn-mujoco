@@ -1,0 +1,46 @@
+{
+  "test_only": true,
+  "label": "articulated_face_followthrough_KF03",
+  "source_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/articulated_face_followthrough_KF02_R4.json",
+  "search_steps": 150,
+  "hold_steps": 500,
+  "baseline_face_angle_rad": 0.16648967422166946,
+  "deltas": {
+    "rf_mcp": 0.1,
+    "rf_pip": -0.05,
+    "rf_dip": -0.1
+  },
+  "target_joints": {
+    "rf_mcp": 1.646438714963351,
+    "rf_rot": -1.0113834714245629,
+    "rf_pip": -0.1676088299166988,
+    "rf_dip": 1.1174883375573088
+  },
+  "search_result": {
+    "deltas": {
+      "rf_mcp": 0.1,
+      "rf_pip": -0.05,
+      "rf_dip": -0.1
+    },
+    "targets": {
+      "rf_mcp": 1.646438714963351,
+      "rf_rot": -1.0113834714245629,
+      "rf_pip": -0.1676088299166988,
+      "rf_dip": 1.1174883375573088
+    },
+    "final_angle_deg": 15.766142345031392,
+    "angle_gain_deg": 6.226986679621712,
+    "last_100_range_deg": 0.04848471777093464,
+    "transition_contact_rate": 0.9933333333333333,
+    "transition_average_force_n": 0.32804868267108517,
+    "last_100_contact_rate": 1.0,
+    "last_100_average_force_n": 0.06247675708090889,
+    "support_rate": 1.0,
+    "ring_core_rate": 0.0,
+    "maximum_relative_drift_mm": 0.11263746375937074,
+    "minimum_distance_m": -8.694975209697434e-05,
+    "penetration_over_0.002_m": false,
+    "warnings": [],
+    "pass": true
+  }
+}

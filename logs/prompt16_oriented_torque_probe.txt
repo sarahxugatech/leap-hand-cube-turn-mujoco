@@ -1,0 +1,38 @@
+test=Prompt 16 TEST-only small-joint torque probe
+source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/oriented_grasp_O01.json
+probe_delta_rad=0.1
+ramp_steps=150
+hold_steps=100
+cube_hand_attachment=NO
+cube_qpos_updates_during_run=0
+full_90_degree_turn=NO
+safe_completed=20/24
+best_safe=rf_rot delta=-0.10000000000000009 yaw_deg=2.510023089147168 tilt_deg=5.06586345782402 geodesic_deg=5.604469229624683 drift_mm=1.7874037941964944
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+
+joint | delta_rad | yaw_deg | tilt_deg | geodesic_deg | drift_mm | stop | final_contacts
+if_dip | -0.100000 | -0.006141 | 0.002683 | 0.006702 | 0.006 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+if_dip | +0.100000 | -0.002394 | 0.006846 | 0.007253 | 0.006 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+if_mcp | -0.100000 | -0.002132 | 0.010117 | 0.010339 | 0.018 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+if_mcp | +0.100000 | +0.003051 | 0.007506 | 0.008103 | 0.020 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+if_pip | -0.100000 | -0.000097 | 0.008906 | 0.008907 | 0.006 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+if_pip | +0.100000 | -0.001129 | 0.004411 | 0.004554 | 0.005 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+if_rot | -0.100000 | -0.004890 | 0.001139 | 0.005021 | 0.014 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+if_rot | +0.100000 | +0.003964 | 0.006576 | 0.007679 | 0.016 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+mf_dip | -0.100000 | +0.000305 | 0.010855 | 0.010859 | 0.007 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+mf_dip | +0.100000 | -0.003944 | 0.005758 | 0.006979 | 0.005 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+mf_mcp | -0.100000 | -0.714527 | 1.966023 | 2.087971 | 1.316 | support_loss | ['mf_px_collision', 'palm_collision_1', 'rf_md_collision_5']
+mf_mcp | +0.100000 | -0.040066 | 4.679187 | 4.679464 | 2.412 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+mf_pip | -0.100000 | -0.002755 | 0.002081 | 0.003452 | 0.011 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+mf_pip | +0.100000 | -0.000985 | 0.006045 | 0.006125 | 0.010 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+mf_rot | -0.100000 | +0.003456 | 0.106908 | 0.106963 | 0.051 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+mf_rot | +0.100000 | -0.053168 | 0.188183 | 0.195577 | 0.069 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+rf_dip | -0.100000 | -0.009066 | 0.014734 | 0.017299 | 0.016 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+rf_dip | +0.100000 | -0.007894 | 0.009859 | 0.012630 | 0.015 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+rf_mcp | -0.100000 | +0.334343 | 1.007204 | 1.059868 | 0.410 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+rf_mcp | +0.100000 | -0.035125 | 0.060031 | 0.069552 | 0.035 | support_loss | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'th_ds_collision_2']
+rf_pip | -0.100000 | +0.587499 | 1.666533 | 1.763086 | 0.636 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_2']
+rf_pip | +0.100000 | -0.032903 | 0.060034 | 0.068463 | 0.029 | support_loss | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'th_ds_collision_2']
+rf_rot | -0.100000 | +2.510023 | 5.065863 | 5.604469 | 1.787 | completed | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'rf_md_collision_5', 'th_ds_collision_1', 'th_ds_collision_2']
+rf_rot | +0.100000 | -0.032445 | 0.051130 | 0.060555 | 0.029 | support_loss | ['mf_px_collision', 'palm_collision_1', 'palm_collision_6', 'th_ds_collision_2']

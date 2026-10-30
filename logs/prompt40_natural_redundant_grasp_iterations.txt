@@ -1,0 +1,32 @@
+test=prompt40 natural redundant-grasp iteration summary
+seed=40001
+ring_samples_per_iteration=80000
+support_samples_per_finger=800
+natural_ring_rot_range_rad=[-0.5,+0.5]
+
+iteration_1=fixed relative Z, same rf_ds_collision_1 required near both layers
+iteration_1_ring_near_candidate_count=12
+iteration_1_support_solved_count=12
+iteration_1_static_gate_count=0
+iteration_1_best_minimum_relevant_contact_m=-0.01292332392563405
+
+iteration_2=relative Z +/-0.03 m, same rf_ds_collision_1 required near both layers, all ring segments checked for penetration
+iteration_2_ring_near_raw_count=83
+iteration_2_ring_penetration_reject_count=83
+iteration_2_ring_near_candidate_count=0
+iteration_2_static_gate_count=0
+
+iteration_3=relative Z +/-0.03 m, separate ring segments allowed for core and face, all ring segments checked for penetration
+iteration_3_ring_near_raw_count=0
+iteration_3_ring_penetration_reject_count=0
+iteration_3_ring_near_candidate_count=0
+iteration_3_static_gate_count=0
+
+NATURAL_CROSS_SEAM_GRASP=FAIL
+dynamic_hold=NOT_RUN
+lift=NOT_RUN
+release_test=NOT_RUN
+face_turn=NOT_RUN
+promoted_pose=NONE
+main_scene_sha256=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+test_scene_sha256=baaf5fc65a93bc11ec12b9407e24c70568ed3d5f7bdb00916617b48f18fdacbb

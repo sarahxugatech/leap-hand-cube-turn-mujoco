@@ -1,0 +1,20 @@
+test=2x2 cube TEST scene load and geometry check
+scene=/Users/tianhui/Desktop/New Folder With Items/灵巧手/scenes/table_2x2_cube_test.xml
+scene_sha256=b126a0fa132d4ae1a1752647258ebb841a73ddd15fde1e84e4c335facb6a5831
+nq=29 nv=28 nu=21 nbody=21 ngeom=121
+cube_core_mass_kg=0.062500000
+top_layer_mass_kg=0.062500000
+total_cube_mass_kg=0.125000000
+face_axis=[0.0, 0.0, 1.0]
+face_range_deg=[-95.00001206679983, 95.00001206679983]
+upper_cubie_xy_after_90deg=[(np.float64(-0.0125), np.float64(-0.0125)), (np.float64(-0.0125), np.float64(0.0125)), (np.float64(0.0125), np.float64(-0.0125)), (np.float64(0.0125), np.float64(0.0125))]
+eight_visual_cubies=PASS
+total_mass_0p125kg=PASS
+two_equal_mass_layers=PASS
+visuals_are_noncolliding=PASS
+face_hinge_90deg=PASS
+upper_layer_rotates_as_four=PASS
+no_equality_attachment=PASS
+SCENE_CHECK=PASS
+grasp_revalidated=NO
+old_trajectory_revalidated=NO

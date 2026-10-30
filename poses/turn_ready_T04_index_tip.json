@@ -1,0 +1,34 @@
+{
+  "test_only": true,
+  "label": "turn_ready_T04_index_tip",
+  "source_held_pose": "/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json",
+  "transition_steps": 500,
+  "mount_lift_m": 0.03,
+  "target_joints": {
+    "if_mcp": -0.2796316886945338,
+    "if_rot": -0.5012326615925845,
+    "if_pip": 1.111539465397879,
+    "if_dip": 1.515576662167454,
+    "mf_mcp": 0.36926801563446,
+    "mf_rot": -0.0683810929887713,
+    "mf_pip": -0.19166566272702207,
+    "mf_dip": -0.1408671958253834,
+    "rf_mcp": 1.3237065889715702,
+    "rf_rot": -0.9591419576186903,
+    "rf_pip": 0.259411759905568,
+    "rf_dip": 0.5813243952181975,
+    "th_cmc": 0.2895525011952669,
+    "th_axl": 0.20788480291387904,
+    "th_mcp": 1.2029693402223016,
+    "th_ipl": 0.304903327604935
+  },
+  "source": {
+    "base_candidate": "poses/turn_ready_T01.json",
+    "reachability_log": "logs/prompt15_side_contact_reachability.txt",
+    "finger": "if",
+    "seed": 15001,
+    "samples": 20000,
+    "static_side_geom": "if_tip",
+    "static_contact_depth_m": -0.000086316
+  }
+}

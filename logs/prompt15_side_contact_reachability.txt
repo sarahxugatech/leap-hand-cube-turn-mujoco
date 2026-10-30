@@ -1,0 +1,28 @@
+test=Prompt 15 static distal-side reachability gate at validated T01 state
+candidate=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_ready_T01.json
+side_margin_m=0.005
+cube_state=frozen after real R01 hold, lift, T01 transition, and 500-step hold
+dynamics_during_sampling=NO
+rotation_run=NO
+finger=if
+seed=15001
+samples=20000
+safe_distal_side_contacts=40
+best_safe_distal_distance_m=-0.001962170
+best_safe_joint_values=[0.06555102553246928, -0.46243791742260465, 1.0224124699558554, 1.175499713521833]
+safest_side_contact_depth_m=-0.000086316
+safest_side_joint_values=[-0.2796316886945338, -0.5012326615925845, 1.111539465397879, 1.515576662167454]
+safest_side_geoms=['if_tip']
+
+finger=mf
+seed=15002
+samples=20000
+safe_distal_side_contacts=38
+best_safe_distal_distance_m=-0.001968222
+best_safe_joint_values=[-0.25817250717688583, -0.12927507224060372, 1.800579447782591, 1.9439005080553664]
+safest_side_contact_depth_m=-0.000086316
+safest_side_joint_values=[-0.05402945465207622, -0.4711820561980875, 1.4099105862072312, 2.0404243092934413]
+safest_side_geoms=['mf_ds_collision_3']
+
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1

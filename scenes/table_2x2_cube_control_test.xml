@@ -1,0 +1,109 @@
+<mujoco model="leap table 2x2 cube control test">
+  <compiler angle="radian"/>
+  <option timestep="0.002" integrator="implicitfast" cone="elliptic" impratio="100"/>
+
+  <asset>
+    <model name="leap_hand" file="../menagerie/leap_hand/right_hand.xml"/>
+    <material name="table_mat" rgba="0.35 0.30 0.25 1"/>
+    <material name="cubie_mat" rgba="0.035 0.035 0.035 1"/>
+    <material name="white_mat" rgba="0.95 0.95 0.92 1"/>
+    <material name="yellow_mat" rgba="1.00 0.82 0.03 1"/>
+    <material name="red_mat" rgba="0.88 0.05 0.04 1"/>
+    <material name="orange_mat" rgba="1.00 0.30 0.02 1"/>
+    <material name="green_mat" rgba="0.02 0.62 0.18 1"/>
+    <material name="blue_mat" rgba="0.03 0.24 0.90 1"/>
+  </asset>
+
+  <default>
+    <default class="visual">
+      <geom contype="0" conaffinity="0" density="0" group="2"/>
+    </default>
+    <default class="sticker">
+      <geom contype="0" conaffinity="0" density="0" group="2"/>
+    </default>
+  </default>
+
+  <worldbody>
+    <light pos="0 0 1" dir="0 0 -1" directional="true"/>
+    <geom name="table" type="box" pos="0 0 0.025" size="0.30 0.30 0.025"
+      material="table_mat" friction="0.2"/>
+
+    <body name="cube" pos="0 0 0.075">
+      <freejoint name="cube_free"/>
+      <!-- Collision and mass exactly match the previously validated articulated scene. -->
+      <geom name="cube_core_geom" type="box" pos="0 0 -0.008333333333"
+        size="0.025 0.025 0.016666666667" density="1000"
+        rgba="0 0 0 0" friction="0.2"/>
+
+      <geom name="cubie_dpp" class="visual" type="box" pos="0.0125 0.0125 -0.0125"
+        size="0.0122 0.0122 0.0122" material="cubie_mat"/>
+      <geom name="cubie_dpn" class="visual" type="box" pos="0.0125 -0.0125 -0.0125"
+        size="0.0122 0.0122 0.0122" material="cubie_mat"/>
+      <geom name="cubie_dnp" class="visual" type="box" pos="-0.0125 0.0125 -0.0125"
+        size="0.0122 0.0122 0.0122" material="cubie_mat"/>
+      <geom name="cubie_dnn" class="visual" type="box" pos="-0.0125 -0.0125 -0.0125"
+        size="0.0122 0.0122 0.0122" material="cubie_mat"/>
+
+      <geom class="sticker" type="box" pos="0.0125 0 -0.02515" size="0.0115 0.0115 0.00015" material="yellow_mat"/>
+      <geom class="sticker" type="box" pos="-0.0125 0 -0.02515" size="0.0115 0.0115 0.00015" material="yellow_mat"/>
+      <geom class="sticker" type="box" pos="0.0125 0.02515 -0.0125" size="0.0115 0.00015 0.0115" material="green_mat"/>
+      <geom class="sticker" type="box" pos="-0.0125 0.02515 -0.0125" size="0.0115 0.00015 0.0115" material="green_mat"/>
+      <geom class="sticker" type="box" pos="0.0125 -0.02515 -0.0125" size="0.0115 0.00015 0.0115" material="blue_mat"/>
+      <geom class="sticker" type="box" pos="-0.0125 -0.02515 -0.0125" size="0.0115 0.00015 0.0115" material="blue_mat"/>
+      <geom class="sticker" type="box" pos="0.02515 0.0125 -0.0125" size="0.00015 0.0115 0.0115" material="red_mat"/>
+      <geom class="sticker" type="box" pos="0.02515 -0.0125 -0.0125" size="0.00015 0.0115 0.0115" material="red_mat"/>
+      <geom class="sticker" type="box" pos="-0.02515 0.0125 -0.0125" size="0.00015 0.0115 0.0115" material="orange_mat"/>
+      <geom class="sticker" type="box" pos="-0.02515 -0.0125 -0.0125" size="0.00015 0.0115 0.0115" material="orange_mat"/>
+
+      <body name="face_layer" pos="0 0 0.016666666667">
+        <joint name="face_turn" type="hinge" axis="0 0 1" range="-1.658063 1.658063"
+          damping="0.002" frictionloss="0.01"/>
+        <geom name="face_layer_geom" type="box" size="0.025 0.025 0.008333333333"
+          density="1000" rgba="0 0 0 0" friction="0.2"/>
+
+        <geom name="cubie_upp" class="visual" type="box" pos="0.0125 0.0125 -0.004166666667"
+          size="0.0122 0.0122 0.0122" material="cubie_mat"/>
+        <geom name="cubie_upn" class="visual" type="box" pos="0.0125 -0.0125 -0.004166666667"
+          size="0.0122 0.0122 0.0122" material="cubie_mat"/>
+        <geom name="cubie_unp" class="visual" type="box" pos="-0.0125 0.0125 -0.004166666667"
+          size="0.0122 0.0122 0.0122" material="cubie_mat"/>
+        <geom name="cubie_unn" class="visual" type="box" pos="-0.0125 -0.0125 -0.004166666667"
+          size="0.0122 0.0122 0.0122" material="cubie_mat"/>
+
+        <geom class="sticker" type="box" pos="0.0125 0.0125 0.008483333333" size="0.0115 0.0115 0.00015" material="white_mat"/>
+        <geom class="sticker" type="box" pos="0.0125 -0.0125 0.008483333333" size="0.0115 0.0115 0.00015" material="white_mat"/>
+        <geom class="sticker" type="box" pos="-0.0125 0.0125 0.008483333333" size="0.0115 0.0115 0.00015" material="white_mat"/>
+        <geom class="sticker" type="box" pos="-0.0125 -0.0125 0.008483333333" size="0.0115 0.0115 0.00015" material="white_mat"/>
+        <geom class="sticker" type="box" pos="0.0125 0.02515 -0.004166666667" size="0.0115 0.00015 0.0115" material="green_mat"/>
+        <geom class="sticker" type="box" pos="-0.0125 0.02515 -0.004166666667" size="0.0115 0.00015 0.0115" material="green_mat"/>
+        <geom class="sticker" type="box" pos="0.0125 -0.02515 -0.004166666667" size="0.0115 0.00015 0.0115" material="blue_mat"/>
+        <geom class="sticker" type="box" pos="-0.0125 -0.02515 -0.004166666667" size="0.0115 0.00015 0.0115" material="blue_mat"/>
+        <geom class="sticker" type="box" pos="0.02515 0.0125 -0.004166666667" size="0.00015 0.0115 0.0115" material="red_mat"/>
+        <geom class="sticker" type="box" pos="0.02515 -0.0125 -0.004166666667" size="0.00015 0.0115 0.0115" material="red_mat"/>
+        <geom class="sticker" type="box" pos="-0.02515 0.0125 -0.004166666667" size="0.00015 0.0115 0.0115" material="orange_mat"/>
+        <geom class="sticker" type="box" pos="-0.02515 -0.0125 -0.004166666667" size="0.00015 0.0115 0.0115" material="orange_mat"/>
+      </body>
+    </body>
+
+    <body name="mount" pos="0 0 0.25">
+      <joint name="mount_x" type="slide" axis="1 0 0" range="-0.15 0.15" damping="1"/>
+      <joint name="mount_y" type="slide" axis="0 1 0" range="-0.15 0.15" damping="1"/>
+      <joint name="mount_z" type="slide" axis="0 0 1" range="-0.30 0.10" damping="1"/>
+      <joint name="mount_pitch" type="hinge" axis="0 1 0" range="-0.35 0.35" damping="1"/>
+      <joint name="mount_roll" type="hinge" axis="1 0 0" range="-0.35 0.35" damping="1"/>
+      <attach model="leap_hand" body="palm" prefix=""/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="mount_x_act" joint="mount_x" kp="10000" kv="200" ctrlrange="-0.15 0.15"/>
+    <position name="mount_y_act" joint="mount_y" kp="10000" kv="200" ctrlrange="-0.15 0.15"/>
+    <position name="mount_z_act" joint="mount_z" kp="10000" kv="200" ctrlrange="-0.30 0.10"/>
+    <position name="mount_pitch_act" joint="mount_pitch" kp="1000" kv="60" ctrlrange="-0.35 0.35"/>
+    <position name="mount_roll_act" joint="mount_roll" kp="1000" kv="60" ctrlrange="-0.35 0.35"/>
+  </actuator>
+
+  <keyframe>
+    <key name="start" qpos="0 0 0.075 1 0 0 0 0 -0.0425 -0.0070 -0.2190 0.10 -0.10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+  </keyframe>
+</mujoco>

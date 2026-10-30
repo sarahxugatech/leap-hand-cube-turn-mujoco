@@ -1,0 +1,38 @@
+test=Prompt 21 R01 high-margin TEST-only small-joint torque probe
+source_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/grasp_hold_refined_R01.json
+probe_delta_rad=0.2
+ramp_steps=150
+hold_steps=100
+cube_hand_attachment=NO
+cube_qpos_updates_during_run=0
+full_90_degree_turn=NO
+safe_completed=18/24
+best_safe=if_mcp delta=-0.2 yaw_deg=-1.7769849984215902 tilt_deg=6.953605130268615 geodesic_deg=7.227279916649312 drift_mm=2.7392378644522375
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+
+joint | delta_rad | yaw_deg | tilt_deg | geodesic_deg | drift_mm | stop | final_contacts
+if_dip | -0.200000 | -0.016839 | 0.001363 | 0.016894 | 0.022 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+if_dip | +0.200000 | -0.015836 | 0.013954 | 0.021107 | 0.017 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+if_mcp | -0.200000 | -1.776985 | 6.953605 | 7.227280 | 2.739 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2', 'th_tip']
+if_mcp | +0.200000 | -0.112745 | 0.541523 | 0.553384 | 0.290 | support_loss | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1']
+if_pip | -0.197470 | -1.057409 | 0.119738 | 1.064106 | 0.195 | support_loss | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1']
+if_pip | +0.200000 | -0.054579 | 0.005168 | 0.054824 | 0.039 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+if_rot | -0.200000 | -0.220098 | 0.041237 | 0.223935 | 0.051 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1']
+if_rot | +0.200000 | -0.004677 | 0.007703 | 0.009011 | 0.015 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+mf_dip | -0.111474 | -0.006143 | 0.007430 | 0.009641 | 0.008 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+mf_dip | +0.200000 | -0.000499 | 0.003756 | 0.003789 | 0.016 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+mf_mcp | -0.200000 | -0.260825 | 0.313312 | 0.407616 | 0.215 | support_loss | ['if_bs_collision_1', 'mf_bs_collision_1']
+mf_mcp | +0.200000 | -0.018357 | 4.169781 | 4.169781 | 3.274 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'mf_px_collision', 'palm_collision_1', 'th_ds_collision_2']
+mf_pip | -0.140257 | -0.092407 | 0.153029 | 0.178816 | 0.188 | support_loss | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1']
+mf_pip | +0.200000 | -0.001771 | 0.005748 | 0.006015 | 0.031 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+mf_rot | -0.200000 | -0.042754 | 0.130683 | 0.137498 | 0.127 | support_loss | ['if_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+mf_rot | +0.200000 | -0.131654 | 0.150457 | 0.199870 | 0.198 | support_loss | ['if_bs_collision_1', 'mf_px_collision', 'palm_collision_1']
+rf_dip | -0.151835 | -0.000817 | 0.002116 | 0.002269 | 0.004 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+rf_dip | +0.200000 | -0.005913 | 0.002339 | 0.006359 | 0.007 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+rf_mcp | -0.173394 | -0.009332 | 0.004288 | 0.010270 | 0.029 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+rf_mcp | +0.200000 | -0.007756 | 0.016525 | 0.018255 | 0.034 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+rf_pip | -0.200000 | -1.560972 | 0.032411 | 1.561309 | 1.121 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1']
+rf_pip | +0.200000 | -0.011378 | 0.004355 | 0.012183 | 0.014 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+rf_rot | -0.200000 | -0.003292 | 0.013078 | 0.013486 | 0.010 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']
+rf_rot | +0.200000 | +0.001192 | 0.001629 | 0.002019 | 0.006 | completed | ['if_bs_collision_1', 'mf_bs_collision_1', 'palm_collision_1', 'th_ds_collision_2']

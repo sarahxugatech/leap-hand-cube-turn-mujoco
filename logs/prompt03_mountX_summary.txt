@@ -1,0 +1,26 @@
+PROMPT 03 MOUNT-X SUMMARY
+
+frozen_main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+frozen_main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+mount_x_only_lock=PASS
+lift_test_run=NO
+
+pose_file                    | thumb_sustained | tip_fingers | any_fingers | final_contact | max_disp_mm | end_disp_mm | ejected | penetration | GATE_A | RELAXED
+---------------------------- | --------------- | ----------- | ----------- | ------------- | ----------- | ----------- | ------- | ----------- | ------ | -------
+power_wrap_T3_mountX_X1.json | NO              | 0           | 1           | YES           | 16.455      | 16.454      | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_mountX_X2.json | NO              | 0           | 1           | YES           | 8.275       | 8.269       | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_mountX_X3.json | NO              | 0           | 1           | YES           | 2.018       | 2.016       | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_mountX_X4.json | NO              | 0           | 0           | NO            | 25.913      | 25.913      | YES     | NO          | FAIL   | FAIL
+power_wrap_T3_mountX_X5.json | NO              | 0           | 0           | NO            | 33.010      | 32.933      | YES     | NO          | FAIL   | FAIL
+
+variant | thumb_ever | first_thumb_geom | anti_crossing | finger_finger_penetration | hand_cube_penetration | hand_table_penetration | lowest_hand_geom_z_m
+------- | ---------- | ---------------- | ------------- | -------------------------- | --------------------- | ---------------------- | --------------------
+X1      | NO         | none             | PASS          | NO                         | NO                    | NO                     | 0.051632808
+X2      | NO         | none             | PASS          | NO                         | NO                    | NO                     | 0.051689164
+X3      | NO         | none             | PASS          | NO                         | NO                    | NO                     | 0.052018749
+X4      | NO         | none             | PASS          | NO                         | NO                    | NO                     | 0.049170500
+X5      | NO         | none             | PASS          | NO                         | NO                    | NO                     | 0.049905414
+
+best_by_required_order=X3 (all thumb_ever=NO; all thumb_sustained=NO; lowest max/end displacement 2.018/2.016 mm; 1 any-finger contact)
+grasp_candidate=NONE
+

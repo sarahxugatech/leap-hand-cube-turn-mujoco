@@ -1,0 +1,22 @@
+scene: scenes/table_cube.xml
+scene_sha256: 1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+test: corrected-scene passive stability, open hand, no grasp or lift
+steps: 2000
+timestep_s: 0.002
+duration_s: 4.000
+cube_start_m: [0.000000000000, 0.000000000000, 0.075000000000]
+cube_end_m: [0.000000005441, -0.000000009729, 0.074892244580]
+cube_xy_drift_m: 0.000000011147
+cube_z_change_m: -0.000107755420
+mount_start: [-0.042500000000, -0.007000000000, -0.219000000000, 0.100000000000, -0.100000000000]
+mount_end: [-0.042500000000, -0.007000000000, -0.219731826000, 0.100068090432, -0.100256815389]
+mount_max_abs_drift_m_or_rad: 0.000731826000
+palm_center_open_m: [-0.032566533460, 0.002983341665, 0.130003328892]
+hand_lowest_z_open_m: 0.042003269557
+hand_lowest_z_method: minimum geom centre Z minus geom bounding radius (conservative)
+max_contacts: 5
+minimum_contact_distance_m: -0.000136718930
+minimum_contact_pair: cube_geom,if_bs_collision_2
+penetration_over_0.002_m: false
+solver_or_contact_warnings: []
+

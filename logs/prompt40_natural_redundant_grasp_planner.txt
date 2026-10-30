@@ -1,0 +1,17 @@
+test=natural four-finger redundant-grasp static search
+seed=40001
+ring_samples=80000
+support_samples_per_finger=800
+ring_rot_range_rad=[-0.5,+0.5]
+ring_mcp_range_rad=[0.0,1.8]
+ring_pip_range_rad=[-0.1,1.5]
+ring_dip_within_0.7_rad_of_pip=true
+ring_dual_contact=separate ring collision segments allowed
+cube_relative_z_range_m=[-0.03,+0.03]
+ring_near_raw_count=0
+ring_penetration_reject_count=0
+ring_near_candidate_count=0
+support_solved_count=0
+static_gate_count=0
+main_scene_sha256=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+test_scene_sha256=baaf5fc65a93bc11ec12b9407e24c70568ed3d5f7bdb00916617b48f18fdacbb

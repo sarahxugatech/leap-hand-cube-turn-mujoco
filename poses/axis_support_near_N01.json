@@ -1,0 +1,67 @@
+{
+  "test_only": true,
+  "near_miss": true,
+  "label": "axis_support_near_N01",
+  "cube_start_xyz": [
+    -0.09515493993299884,
+    -0.009274313732701378,
+    0.19093160873157788
+  ],
+  "cube_start_quat_wxyz": [
+    0.9814990861715053,
+    0.062260292288178205,
+    -0.18094217879200458,
+    0.006567174635518301
+  ],
+  "mount": {
+    "mount_x": -0.0425,
+    "mount_y": -0.007,
+    "mount_z": -0.219,
+    "mount_pitch": -0.23333333333333334,
+    "mount_roll": -0.11666666666666667
+  },
+  "mount_yaw_degrees": -14.316186748442632,
+  "mount_quat_wxyz": [
+    0.9961946980917455,
+    0.08715574274765817,
+    0.0,
+    0.0
+  ],
+  "joints": {
+    "if_mcp": -0.16998438800903706,
+    "if_rot": -0.3018692427865354,
+    "if_pip": 0.8832536195830348,
+    "if_dip": 1.3033376670596295,
+    "mf_mcp": 0.6134989607259609,
+    "mf_rot": -0.03470274350159246,
+    "mf_pip": 0.009957764004879108,
+    "mf_dip": -0.002103974917246375,
+    "rf_mcp": 1.6888141783077222,
+    "rf_rot": -0.8930659626031765,
+    "rf_pip": 0.696483711922286,
+    "rf_dip": 0.8059038200315044,
+    "th_cmc": 0.4847244327287706,
+    "th_axl": 0.10001705345762177,
+    "th_mcp": 1.1897337308831568,
+    "th_ipl": 0.4881874816278684
+  },
+  "target_axis_probe": {
+    "joint": "rf_rot",
+    "delta_rad": -0.12,
+    "screen_cube_rise_m": 0.01857260856172921,
+    "screen_yaw_deg": -4.424291483596159,
+    "screen_tilt_deg": 3.72473042108692,
+    "screen_geodesic_deg": 5.829070059298435,
+    "screen_drift_m": 0.011424593215083125,
+    "pass": false,
+    "failed_gate": "cube rise < 0.020 m"
+  },
+  "planner": {
+    "kind": "joint axis/support CEM (not MPC, not learned)",
+    "seed": 20001,
+    "population": 48,
+    "generations": 10,
+    "elite_count": 6,
+    "time_budget_s": 45.0
+  }
+}

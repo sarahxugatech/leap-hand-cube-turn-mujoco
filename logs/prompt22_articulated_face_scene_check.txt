@@ -1,0 +1,27 @@
+test=Prompt 22 TEST-only articulated face scene check
+test_scene=/Users/tianhui/Desktop/New Folder With Items/灵巧手/scenes/table_articulated_face_test.xml
+test_scene_sha256=baaf5fc65a93bc11ec12b9407e24c70568ed3d5f7bdb00916617b48f18fdacbb
+nq=29 nv=28 nu=21 nbody=21 ngeom=91
+cube_freejoint=YES
+face_joint=face_turn
+face_axis=[0.0, 0.0, 1.0]
+face_range_rad=[-1.658063, 1.658063]
+face_range_deg=[-95.00001206679983, 95.00001206679983]
+face_damping=0.002000000
+face_frictionloss=0.010000000
+cube_core_mass_kg=0.083333333
+face_layer_mass_kg=0.041666667
+total_cube_mass_kg=0.125000000
+cube_start_m=[0.0, 0.0, 0.075]
+cube_end_m=[2.083155351107301e-08, -1.217567130313116e-08, 0.07488066012212245]
+maximum_cube_drift_m=0.000119340
+face_start_rad=+0.000000000
+face_end_rad=-0.000115145
+maximum_face_drift_rad=0.000115145
+warnings=none
+PASSIVE_STABILITY=PASS
+grasp_attempted=NO
+face_turn_attempted=NO
+cube_hand_attachment=NO
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1

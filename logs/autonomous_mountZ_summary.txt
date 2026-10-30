@@ -1,0 +1,13 @@
+AUTONOMOUS VARIABLE 1 — MOUNT-Z
+pose_file                    | thumb_sustained | tip_fingers | any_fingers | final_contact | max_disp_mm | end_disp_mm | ejected | penetration | GATE_A | RELAXED
+power_wrap_T3_mountZ_Z1.json | NO              | 0           | 1           | YES           | 24.587      | 18.178      | NO      | YES         | FAIL   | FAIL
+power_wrap_T3_mountZ_Z2.json | NO              | 0           | 1           | YES           | 2.943       | 2.848       | NO      | YES         | FAIL   | FAIL
+power_wrap_T3_mountZ_Z3.json | NO              | 0           | 1           | YES           | 2.018       | 2.016       | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_mountZ_Z4.json | NO              | 0           | 1           | YES           | 10.488      | 10.464      | NO      | NO          | FAIL   | FAIL
+power_wrap_T3_mountZ_Z5.json | NO              | 0           | 0           | NO            | 4.434       | 4.434       | NO      | NO          | FAIL   | FAIL
+thumb_ever: Z1=NO Z2=NO Z3=NO Z4=NO Z5=NO
+anti_crossing: Z1=PASS Z2=PASS Z3=PASS Z4=PASS Z5=PASS
+hand_cube_penetration_over_0.002: Z1=YES Z2=YES Z3=NO Z4=NO Z5=NO
+refinement_run=NO (thumb ever NO in all initial variants)
+variable_result=mount-Z: thumb ever NO in all variants
+

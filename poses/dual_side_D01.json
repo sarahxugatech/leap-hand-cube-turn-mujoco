@@ -1,0 +1,63 @@
+{
+  "test_only": true,
+  "label": "dual_side_D01",
+  "source_held_pose": "/Users/tianhui/Desktop/New Folder With Items/\u7075\u5de7\u624b/poses/grasp_hold_refined_R01.json",
+  "transition_steps": 300,
+  "mount_lift_m": 0.03,
+  "target_joints": {
+    "if_mcp": -0.23971373972857668,
+    "if_rot": -0.41899334054578197,
+    "if_pip": 1.0513268724971967,
+    "if_dip": 1.646715964952784,
+    "mf_mcp": 0.5338794357535076,
+    "mf_rot": -0.042114160900174086,
+    "mf_pip": -0.31255817937918323,
+    "mf_dip": -0.27390497601523167,
+    "rf_mcp": 1.563941269450189,
+    "rf_rot": -1.047,
+    "rf_pip": 0.2510330969998975,
+    "rf_dip": 0.6389067652882614,
+    "th_cmc": 0.2895525011952669,
+    "th_axl": 0.20788480291387904,
+    "th_mcp": 1.2029693402223016,
+    "th_ipl": 0.304903327604935
+  },
+  "screen": {
+    "score": 150.9223411791531,
+    "thumb_fraction": 1.0,
+    "support_fraction": 1.0,
+    "side_fraction": 1.0,
+    "fingers": [
+      "if",
+      "mf",
+      "rf"
+    ],
+    "contacts": [
+      "if_tip",
+      "mf_bs_collision_1",
+      "mf_px_collision",
+      "palm_collision_1",
+      "rf_ds_collision_1",
+      "th_ds_collision_2",
+      "th_tip"
+    ],
+    "side_contacts": [
+      "if_tip",
+      "rf_ds_collision_1"
+    ],
+    "maximum_drift_m": 0.0015395126012098484,
+    "minimum_distal_distance_m": -0.00011359584575358075,
+    "deepest_cube_m": -0.0004023422244639963,
+    "deepest_self_m": Infinity,
+    "deepest_table_m": Infinity,
+    "screen_pass": true
+  },
+  "planner": {
+    "kind": "turn-ready grasp CEM-style sampling (not MPC, not learned)",
+    "seed": 15003,
+    "population": 64,
+    "generations": 8,
+    "elite_count": 8,
+    "time_budget_s": 45.0
+  }
+}

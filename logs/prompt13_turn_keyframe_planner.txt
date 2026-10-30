@@ -1,0 +1,24 @@
+test=Prompt 13 sampled turn-keyframe planner
+precondition=scripted run02 produced +5.348 deg measured Z rotation
+seed=13001
+population=24
+generations_requested=6
+generations_completed=6
+elite_count=5
+time_budget_s=45.0
+elapsed_s=26.048
+safe_held_candidates=2
+pose_files=['/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_keyframes_K01.json', '/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/turn_keyframes_K02.json']
+MPC=NO
+learned_policy=NO
+cube_hand_attachment=NO
+cube_qpos_updates_during_run=0
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+
+generation=1 score=-10458.155337 yaw_deg=+5.492 tilt_deg=0.870 drift_mm=13.839 self_m=-0.002549 thumb=True fingers=['if', 'mf'] safe=False
+generation=2 score=-10328.455791 yaw_deg=-2.444 tilt_deg=4.091 drift_mm=3.891 self_m=-0.002359 thumb=True fingers=['if', 'rf'] safe=False
+generation=3 score=-10223.285518 yaw_deg=-1.886 tilt_deg=5.590 drift_mm=6.908 self_m=-0.002251 thumb=True fingers=['if', 'rf'] safe=False
+generation=4 score=-10155.851623 yaw_deg=-4.780 tilt_deg=3.519 drift_mm=4.643 self_m=-0.002188 thumb=True fingers=['if', 'rf'] safe=False
+generation=5 score=-9980.608118 yaw_deg=-1.279 tilt_deg=0.123 drift_mm=3.119 self_m=-0.002020 thumb=True fingers=['if', 'mf', 'rf'] safe=False
+generation=6 score=55.134620 yaw_deg=+1.610 tilt_deg=0.064 drift_mm=4.166 self_m=-0.001996 thumb=True fingers=['if', 'mf', 'rf'] safe=True

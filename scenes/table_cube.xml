@@ -1,0 +1,43 @@
+<mujoco model="leap table cube">
+  <compiler angle="radian"/>
+  <option timestep="0.002" integrator="implicitfast" cone="elliptic" impratio="100"/>
+
+  <asset>
+    <model name="leap_hand" file="../menagerie/leap_hand/right_hand.xml"/>
+    <material name="table_mat" rgba="0.35 0.30 0.25 1"/>
+    <material name="cube_mat" rgba="0.85 0.25 0.15 1"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 1" dir="0 0 -1" directional="true"/>
+    <geom name="table" type="box" pos="0 0 0.025" size="0.30 0.30 0.025"
+      material="table_mat" friction="0.2"/>
+
+    <body name="cube" pos="0 0 0.075">
+      <freejoint name="cube_free"/>
+      <geom name="cube_geom" type="box" size="0.025 0.025 0.025" density="1000"
+        material="cube_mat" friction="0.2"/>
+    </body>
+
+    <body name="mount" pos="0 0 0.25">
+      <joint name="mount_x" type="slide" axis="1 0 0" range="-0.15 0.15" damping="1"/>
+      <joint name="mount_y" type="slide" axis="0 1 0" range="-0.15 0.15" damping="1"/>
+      <joint name="mount_z" type="slide" axis="0 0 1" range="-0.30 0.10" damping="1"/>
+      <joint name="mount_pitch" type="hinge" axis="0 1 0" range="-0.35 0.35" damping="1"/>
+      <joint name="mount_roll" type="hinge" axis="1 0 0" range="-0.35 0.35" damping="1"/>
+      <attach model="leap_hand" body="palm" prefix=""/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <position name="mount_x_act" joint="mount_x" kp="10000" kv="200" ctrlrange="-0.15 0.15"/>
+    <position name="mount_y_act" joint="mount_y" kp="10000" kv="200" ctrlrange="-0.15 0.15"/>
+    <position name="mount_z_act" joint="mount_z" kp="10000" kv="200" ctrlrange="-0.30 0.10"/>
+    <position name="mount_pitch_act" joint="mount_pitch" kp="1000" kv="60" ctrlrange="-0.35 0.35"/>
+    <position name="mount_roll_act" joint="mount_roll" kp="1000" kv="60" ctrlrange="-0.35 0.35"/>
+  </actuator>
+
+  <keyframe>
+    <key name="start" qpos="0 0 0.075 1 0 0 0 -0.0425 -0.0070 -0.2190 0.10 -0.10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+  </keyframe>
+</mujoco>

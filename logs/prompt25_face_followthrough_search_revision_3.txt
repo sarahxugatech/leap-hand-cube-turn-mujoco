@@ -1,0 +1,32 @@
+test=Prompt 25 deterministic articulated-face follow-through grid search
+candidates_evaluated=124
+search_steps=150
+evaluation_hold_steps=500
+deltas_rad=[-0.1, -0.05, 0.0, 0.05, 0.1]
+baseline_face_angle_deg=+3.384557584
+baseline_ring_qpos={'rf_mcp': 1.502080775102158, 'rf_rot': -1.0043117956430747, 'rf_pip': -0.06697898372192157, 'rf_dip': 1.2667168085814842}
+rf_ds_collision_1_geom_type=mjGEOM_BOX
+contact_force_threshold_n=0.001000
+minimum_contact_rate=0.950000
+minimum_average_force_n=0.005000
+final_angle_gate_deg=[5.000000, 10.000000]
+admissible_candidates=8
+selectable_candidates=8
+best_candidate={'deltas': {'rf_mcp': 0.05, 'rf_pip': -0.05, 'rf_dip': -0.05}, 'targets': {'rf_mcp': 1.5520807751021581, 'rf_rot': -1.0043117956430747, 'rf_pip': -0.11697898372192157, 'rf_dip': 1.2167168085814841}, 'final_angle_rad': 0.16648967422166946, 'angle_gain_rad': 0.10741800065327059, 'average_force_n': 0.35553485535066653, 'contact_rate': 0.9933333333333333, 'last_100_contact_rate': 1.0, 'last_100_average_force_n': 0.015239348180599204, 'last_100_range_deg': 0.0803676652735159, 'support_rate': 1.0, 'ring_core_rate': 0.0, 'max_relative_drift_m': 0.0001433825656541922, 'minimum_distance_m': -7.610878467344089e-05, 'warnings': [], 'admissible': True}
+top_10_by_final_angle:
+01 deltas={'rf_mcp': 0.1, 'rf_pip': -0.1, 'rf_dip': -0.1} final_deg=+11.992543 gain_deg=+8.607986 force_n=0.462359 contact_rate=0.986667 last100_contact_rate=1.000000 support_rate=0.986154 ring_core_rate=0.000000 drift_mm=1.212914 min_dist_m=-0.000133670 admissible=NO
+02 deltas={'rf_mcp': 0.05, 'rf_pip': -0.1, 'rf_dip': -0.1} final_deg=+11.610160 gain_deg=+8.225603 force_n=0.492433 contact_rate=0.980000 last100_contact_rate=1.000000 support_rate=0.973846 ring_core_rate=0.000000 drift_mm=1.981709 min_dist_m=-0.000127409 admissible=NO
+03 deltas={'rf_mcp': 0.05, 'rf_pip': -0.05, 'rf_dip': -0.1} final_deg=+11.174243 gain_deg=+7.789686 force_n=0.433062 contact_rate=0.986667 last100_contact_rate=1.000000 support_rate=0.993846 ring_core_rate=0.000000 drift_mm=0.869253 min_dist_m=-0.000117208 admissible=NO
+04 deltas={'rf_mcp': 0.05, 'rf_pip': -0.1, 'rf_dip': -0.05} final_deg=+10.744539 gain_deg=+7.359982 force_n=0.434564 contact_rate=0.986667 last100_contact_rate=1.000000 support_rate=0.986154 ring_core_rate=0.000000 drift_mm=1.336003 min_dist_m=-0.000110887 admissible=NO
+05 deltas={'rf_mcp': 0.0, 'rf_pip': -0.05, 'rf_dip': -0.1} final_deg=+10.676629 gain_deg=+7.292071 force_n=0.454356 contact_rate=0.973333 last100_contact_rate=1.000000 support_rate=0.976923 ring_core_rate=0.000000 drift_mm=1.836354 min_dist_m=-0.000122149 admissible=NO
+06 deltas={'rf_mcp': 0.0, 'rf_pip': -0.1, 'rf_dip': -0.1} final_deg=+10.503458 gain_deg=+7.118900 force_n=0.521134 contact_rate=0.966667 last100_contact_rate=1.000000 support_rate=0.973846 ring_core_rate=0.000000 drift_mm=2.388525 min_dist_m=-0.000149637 admissible=NO
+07 deltas={'rf_mcp': 0.1, 'rf_pip': -0.05, 'rf_dip': -0.1} final_deg=+10.419309 gain_deg=+7.034752 force_n=0.324781 contact_rate=0.986667 last100_contact_rate=1.000000 support_rate=1.000000 ring_core_rate=0.000000 drift_mm=0.114495 min_dist_m=-0.000090414 admissible=NO
+08 deltas={'rf_mcp': 0.1, 'rf_pip': -0.1, 'rf_dip': -0.05} final_deg=+10.317075 gain_deg=+6.932517 force_n=0.401574 contact_rate=0.993333 last100_contact_rate=1.000000 support_rate=1.000000 ring_core_rate=0.000000 drift_mm=0.313467 min_dist_m=-0.000092485 admissible=NO
+09 deltas={'rf_mcp': 0.0, 'rf_pip': 0.0, 'rf_dip': -0.1} final_deg=+10.204995 gain_deg=+6.820437 force_n=0.395507 contact_rate=0.986667 last100_contact_rate=1.000000 support_rate=1.000000 ring_core_rate=0.000000 drift_mm=0.471311 min_dist_m=-0.000098866 admissible=NO
+10 deltas={'rf_mcp': 0.0, 'rf_pip': -0.1, 'rf_dip': -0.05} final_deg=+9.968159 gain_deg=+6.583601 force_n=0.460415 contact_rate=0.973333 last100_contact_rate=1.000000 support_rate=0.980000 ring_core_rate=0.000000 drift_mm=1.867553 min_dist_m=-0.000121807 admissible=NO
+FOLLOWTHROUGH_SEARCH=PASS
+output_pose=/Users/tianhui/Desktop/New Folder With Items/灵巧手/poses/articulated_face_followthrough_KF02_R4.json
+main_scene_sha256_before=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+main_scene_sha256_after=1e1e7666992f8e2c82ed11c05723489df0f9614f5a345021be16360eadf7f2a1
+test_scene_sha256_before=baaf5fc65a93bc11ec12b9407e24c70568ed3d5f7bdb00916617b48f18fdacbb
+test_scene_sha256_after=baaf5fc65a93bc11ec12b9407e24c70568ed3d5f7bdb00916617b48f18fdacbb

@@ -13,7 +13,7 @@ Deterministic in-hand manipulation in MuJoCo using a 16-DoF LEAP Hand and a pass
 
 </div>
 
-![Validated LEAP Hand cube-face trajectory](docs/assets/turn-preview.gif)
+![LEAP Hand holding and turning the articulated 2x2 cube](docs/assets/leap-hand-cube-turn-result.png)
 
 ## Overview
 
@@ -45,6 +45,12 @@ The 90° objective is not yet complete. The present limit is a grasp-topology pr
 - Added repeatability, contact, object-drift, penetration, and solver-warning checks.
 
 The rotating layer has no actuator. Its motion is generated only by simulated finger contact.
+
+## Demonstration
+
+![Validated LEAP Hand cube-face trajectory](docs/assets/turn-preview.gif)
+
+[Watch the full browser-based demonstration](https://sarahxugatech.github.io/leap-hand-cube-turn-mujoco/)
 
 ## Reproduce the result
 
